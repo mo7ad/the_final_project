@@ -3,7 +3,7 @@
 $host = "localhost" ;
 $user = "root";
 $pass= "";
-$dbname = "be_19_fp_group_one";
+$dbname = "be19_fp_group_one";
 
 $connect = mysqli_connect($host,$user,$pass,$dbname);
 
