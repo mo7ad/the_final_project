@@ -76,13 +76,13 @@
           <a class="nav-link" href="#">Meal Planner</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Create Recipes</a>
+          <a class="nav-link" href="../home_user/create_rec.php?id">Create Recipes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
+          <a class="nav-link" href="../Login/login.php">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Sign Up</a>
+          <a class="nav-link" href="../Login/register.php">Sign Up</a>
         </li>
       </ul>
     </div>
