@@ -3,7 +3,8 @@
     session_start();
     require_once "../db_connect.php";
 
-$sqlUs = "SELECT * FROM users WHERE user_id = {$_SESSION["user"]}";
+$userID = $_SESSION["user"];
+$sqlUs = "SELECT * FROM users WHERE user_id = $userID";
 $resultUs = mysqli_query($connect, $sqlUs);
 $rowUs = mysqli_fetch_assoc($resultUs);
  
@@ -22,7 +23,7 @@ $rowUs = mysqli_fetch_assoc($resultUs);
         $ingredients = $_POST ["ingredients"];
         
 
-        $sql = "INSERT INTO recipes (recipe_name,description,prep_time,calories,type,url,meal_type,ingredients) VALUES ('$recipe_name','$description','$prep_time','$calories','$type','$url','$meal_type','$ingredients')";
+        $sql = "INSERT INTO recipes (recipe_name,description,prep_time,calories,type,url,meal_type,ingredients,fk_user_id) VALUES ('$recipe_name','$description','$prep_time','$calories','$type','$url','$meal_type','$ingredients',$userID)";
 
         if(mysqli_query($connect, $sql)){
             echo "success";
