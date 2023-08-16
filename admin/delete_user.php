@@ -1,12 +1,12 @@
 <?php
 include "../db_connect.php";
 session_start();
-if(!isset($_SESSION["user"]) && !isset($_SESSION["adm"])){ 
-    header("Location: login/login.php"); 
+if(!isset($_SESSION["user"]) && !isset($_SESSION["admin"])){ 
+    header("Location: ../login/login.php"); 
 }
 
 if(isset($_SESSION["user"])){ 
-    header("Location: homepage.php"); 
+    header("Location: ../home_user/home.php"); 
 }
 
 

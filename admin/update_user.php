@@ -2,11 +2,11 @@
 include "../db_connect.php";
 
 session_start();
-if(!isset($_SESSION["user"]) && !isset($_SESSION["adm"])){ 
-    header("Location:Login/login.php"); }
+if(!isset($_SESSION["user"]) && !isset($_SESSION["admin"])){ 
+    header("Location:../Login/login.php"); }
 
 if(isset($_SESSION["user"])){ 
-    header("Location:../ homepage.php"); 
+    header("Location:../home_user/home.php"); 
 }
 
 $sql="SELECT * FROM `users`";
@@ -43,20 +43,17 @@ $picture=$_POST["picture"];
     </head>
     <body>
     <div class="container mt-5">
-        <h2>Update media</h2>
+        <h2>Update users </h2>
         <form method="POST" enctype="multipart/form-data">
             <div class="mb-3">
-                <label for="fname" class="form-label">First ame</label>
+                <label for="fname" class="form-label">First name</label>
                 <input type="text" class="form-control" value="<?= $row["fname"] ?>" id="fname" aria-describedby="fname" name="fname">
             </div>
             <div class="mb-3">
                 <label for="lname" class="form-label">Last name</label>
                 <input type="text" class="form-control" value="<?= $row["lname"] ?>" id="lname" aria-describedby="lname" name="lname">
             </div>
-            <div class="mb-3">
-                <label for="location" class="form-label">Location</label>
-                <input type="text" class="form-control"value="<?= $row["location"] ?>" id="location" aria-describedby="location" name="location">
-            </div>
+            
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input type="text" class="form-control"value="<?= $row["email"] ?>" id="description" aria-describedby="email" name="email">

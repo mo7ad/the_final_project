@@ -31,9 +31,13 @@ function clear($input){
                     if($row["role"]=="user"){
                     $_SESSION["user"]=$row["user_id"];
                     header("Location: ../home_user/home.php");
-                    }else{
-                        $_SESSION["adm"]=$row["user_id"];
+                    }elseif($row["role"]=="admin"){
+                        $_SESSION["admin"]=$row["user_id"];
                         header("Location: dashboard.php");
+                    }elseif($row["role"]=="blocked"){
+                        $_SESSION["blocked"]=$row["user_id"];
+                        header("Location:../home_user/blocked.php");
+
                     }
 
                     }else {
@@ -41,6 +45,7 @@ function clear($input){
                     }
     }
 }
+
 
 
 ?>
