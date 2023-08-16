@@ -1,14 +1,14 @@
 <?php
 require_once "../components/db_connect.php";
 
-if (isset($_POST['filter'])){
-    $category = $_POST ['category'];
-    $sql ="SELECT * FROM Recipes WHERE (type ='{$category}') or (meal_type ='{$category}')";
+if (isset($_POST['filter'])) {
+    $category = $_POST['category'];
+    $sql = "SELECT * FROM Recipes WHERE type ='{$category}' or meal_type ='{$category}'";
     $result = mysqli_query($connect, $sql);
-    $filter ='';
+    $filter = '';
 
-    if (mysqli_num_rows($result) > 0 ){
-        while ($row =mysqli_fetch_assoc($result)){
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
             $filter .= "<div class='col-md-4 mb-4'>
             <div class='card h-100 shadow'>
                 <img src='" . $row['url'] . "' class='card-img-top' style='object-fit: cover; height: 200px;' alt='" . $row['recipe_name'] . "'>
@@ -28,7 +28,7 @@ if (isset($_POST['filter'])){
             </div>
         </div>";
         }
-    }else {
+    } else {
         $filter .= "No Results Found";
     }
 }
@@ -62,8 +62,8 @@ if (isset($_POST['filter'])){
                         <option value="breakfast">Breakfast</option>
                         <option value="lunch">Lunch</option>
                         <option value="dinner">Dinner</option>
-                        <option value="high-protein">vegan</option>
-                        <option value="regular">Normal</option>
+                        <option value="vegan">vegan</option>
+                        <option value="normal">Normal</option>
                         <option value="vegetarian">Vegetarian</option>
                     </select>
                     <br>
