@@ -1,9 +1,17 @@
 <?php
    
-
+    session_start();
     require_once "../db_connect.php";
 
+$sqlUs = "SELECT * FROM users WHERE user_id = {$_SESSION["user"]}";
+$resultUs = mysqli_query($connect, $sqlUs);
+$rowUs = mysqli_fetch_assoc($resultUs);
+ 
+
+
     if(isset($_POST ["create"])){
+      
+
         $recipe_name = $_POST ["recipe_name"];
         $description = $_POST ["description"];
         $prep_time = $_POST ["prep_time"];
