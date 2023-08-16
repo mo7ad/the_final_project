@@ -10,183 +10,157 @@
         $calories= $_POST ["calories"];
         $type = $_POST ["type"];
         $url = $_POST ["url"];
-        $verified = $_POST ["verified"];
         $meal_type = $_POST ["meal_type"];
         $ingredients = $_POST ["ingredients"];
-        $fk_user_id = $_POST ["fk_user_id"];
+        
 
-        $sql = "INSERT INTO recipes (recipe_name,description,prep_time,calories,type,url,meal_type,ingredients,fk_user_id) VALUES ('$recipe_name','$description',$prep_time,'$calories','$type','$url','$meal_type','$ingredients','$fk_user_id')";
+        $sql = "INSERT INTO recipes (recipe_name,description,prep_time,calories,type,url,meal_type,ingredients) VALUES ('$recipe_name','$description','$prep_time','$calories','$type','$url','$meal_type','$ingredients')";
 
         if(mysqli_query($connect, $sql)){
             echo "success";
-            header("refresh: 3; url = index.php");
+            header("refresh: 3; url = home.php");
         }else {
             echo "failed";
         }
     }
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  </head>
+</head>
+<body>
 <div class="container">
 
-    <form class="well form-horizontal" action=" " method="post"  id="contact_form">
+<form class="well form-horizontal" action=" " method="post"  id="contact_form">
 <fieldset>
 
-<!-- Form Name -->
-<legend>Contact Us Today!</legend>
 
-<!-- Text input-->
+<legend>Create your own recipe!</legend>
 
-<div class="form-group">
-  <label class="col-md-4 control-label">First Name</label>  
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input  name="first_name" placeholder="First Name" class="form-control"  type="text">
-    </div>
-  </div>
-</div>
 
-<!-- Text input-->
 
 <div class="form-group">
-  <label class="col-md-4 control-label" >Last Name</label> 
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input name="last_name" placeholder="Last Name" class="form-control"  type="text">
-    </div>
-  </div>
+<label class="col-md-4 control-label">Recipe</label>  
+<div class="col-md-4 inputGroupContainer">
+<div class="input-group">
+<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+<input  name="recipe_name" placeholder="Recipe" class="form-control"  type="text">
 </div>
-
-<!-- Text input-->
-       <div class="form-group">
-  <label class="col-md-4 control-label">E-Mail</label>  
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-  <input name="email" placeholder="E-Mail Address" class="form-control"  type="text">
-    </div>
-  </div>
+</div>
 </div>
 
 
-<!-- Text input-->
-       
+
 <div class="form-group">
-  <label class="col-md-4 control-label">Phone #</label>  
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-  <input name="phone" placeholder="(845)555-1212" class="form-control" type="text">
-    </div>
-  </div>
+<label class="col-md-4 control-label" >Preparation Time</label> 
+<div class="col-md-4 inputGroupContainer">
+<div class="input-group">
+<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+<input name="prep_time" placeholder="XX hours/minutes" class="form-control"  type="text">
 </div>
+</div>
+</div>
+
+
+   <div class="form-group">
+<label class="col-md-4 control-label">Calories</label>  
+<div class="col-md-4 inputGroupContainer">
+<div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+<input name="calories" placeholder="XXXX calories" class="form-control"  type="text">
+</div>
+</div>
+</div>
+
 
 <!-- Text input-->
-      
-<div class="form-group">
-  <label class="col-md-4 control-label">Address</label>  
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-  <input name="address" placeholder="Address" class="form-control" type="text">
-    </div>
-  </div>
-</div>
-
-<!-- Text input-->
- 
-<div class="form-group">
-  <label class="col-md-4 control-label">City</label>  
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-  <input name="city" placeholder="city" class="form-control"  type="text">
-    </div>
-  </div>
-</div>
-
-<!-- Select Basic -->
    
+<div class="form-group">
+<label class="col-md-4 control-label">Picture</label>
+<div class="col-md-4 inputGroupContainer">
+<div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+      <textarea class="form-control" name="url" placeholder="Picture link"></textarea>
+</div>
+</div>
+</div>
+
+
+
 <div class="form-group"> 
-  <label class="col-md-4 control-label">State</label>
-    <div class="col-md-4 selectContainer">
-    <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-    <select name="state" class="form-control selectpicker" >
-      <option value=" " >Please select your food type</option>
-      <option>Vegan</option>
-      <option>Vegeterian</option>
-      <option>Normal</option>
-    </select>
-  </div>
+<label class="col-md-4 control-label">Meal time</label>
+<div class="col-md-4 selectContainer">
+<div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+<select name="meal_type" class="form-control selectpicker" >
+  <option value=" " >Please select your meal time</option>
+  <option>Breakfest</option>
+  <option>Lunch</option>
+  <option>Dinner</option>
+</select>
+</div>
 </div>
 </div>
 
-<!-- Text input-->
+
+
+<div class="form-group"> 
+<label class="col-md-4 control-label">Meal type</label>
+<div class="col-md-4 selectContainer">
+<div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+<select name="type" class="form-control selectpicker" >
+  <option value=" " >Please select your food type</option>
+  <option>Vegan</option>
+  <option>Vegeterian</option>
+  <option>Normal</option>
+</select>
+</div>
+</div>
+</div>
+
+
 
 <div class="form-group">
-  <label class="col-md-4 control-label">Zip Code</label>  
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-  <input name="zip" placeholder="Zip Code" class="form-control"  type="text">
-    </div>
+<label class="col-md-4 control-label">Ingredients</label>
+<div class="col-md-4 inputGroupContainer">
+<div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+      <textarea class="form-control" name="ingredients" placeholder="Ingredients"></textarea>
+</div>
 </div>
 </div>
 
-<!-- Text input-->
+
+
 <div class="form-group">
-  <label class="col-md-4 control-label">Website or domain name</label>  
-   <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
-  <input name="website" placeholder="Website or domain name" class="form-control" type="text">
-    </div>
-  </div>
+<label class="col-md-4 control-label">Preparation description</label>
+<div class="col-md-4 inputGroupContainer">
+<div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+      <textarea class="form-control" name="description" placeholder="Project Description"></textarea>
+</div>
+</div>
 </div>
 
-<!-- radio checks -->
- <div class="form-group">
-                        <label class="col-md-4 control-label">Do you have hosting?</label>
-                        <div class="col-md-4">
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="hosting" value="yes" /> Yes
-                                </label>
-                            </div>
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="hosting" value="no" /> No
-                                </label>
-                            </div>
-                        </div>
-                    </div>
 
-<!-- Text area -->
-  
 <div class="form-group">
-  <label class="col-md-4 control-label">Project Description</label>
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-        	<textarea class="form-control" name="comment" placeholder="Project Description"></textarea>
-  </div>
-  </div>
+<label class="col-md-4 control-label"></label>
+<div class="col-md-4">
+<button type="submit" class="btn btn-warning" name="create" >Send <span class="glyphicon glyphicon-send"></span></button>
 </div>
-
-<!-- Success message -->
-<div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Thanks for contacting us, we will get back to you shortly.</div>
-
-<!-- Button -->
-<div class="form-group">
-  <label class="col-md-4 control-label"></label>
-  <div class="col-md-4">
-    <button type="submit" class="btn btn-warning" >Send <span class="glyphicon glyphicon-send"></span></button>
-  </div>
 </div>
 
 </fieldset>
 </form>
 </div>
-    </div><!-- /.container -->
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>
