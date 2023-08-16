@@ -46,13 +46,13 @@
     .navbar-nav .nav-item .nav-link {
       color: #ffffff;
       font-weight: 500;
-      transition: color 0.3s ease-in-out;
+      transition: color 0.8s ease-in-out;
       margin: 0 15px;
       text-align: center;
     }
 
     .navbar-nav .nav-item .nav-link:hover {
-      color: #ffc107;
+      color: green;
     }
   </style>
 </head>
