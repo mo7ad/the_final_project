@@ -1,47 +1,37 @@
 <?php
-session_start();
+require_once "../components/db_connect.php";
 
-require_once "../db_connect.php";
+if (isset($_POST['filter'])){
+    $category = $_POST ['category'];
+    $sql ="SELECT * FROM Recipes WHERE (type ='{$category}') or (meal_type ='{$category}')";
+    $result = mysqli_query($connect, $sql);
+    $filter ='';
 
-$user_id = $_SESSION["user"];
-
-$sqlPersons = "SELECT * FROM `users` WHERE user_id = $user_id";
-$resultPersons = mysqli_query($connect, $sqlPersons);
-$rowPersons = mysqli_fetch_assoc($resultPersons);
-
-
-$sql = "SELECT * FROM `recipes`";
-$result = mysqli_query($connect, $sql);
-
-$cards = "";
-
-if (mysqli_num_rows($result) > 0) {
-    while ($row = mysqli_fetch_assoc($result)) {
-
-        $cards .= "<div class='col-md-4 mb-4'>
-        <div class='card h-100 shadow'>
-            <img src='" . $row['url'] . "' class='card-img-top' style='object-fit: cover; height: 200px;' alt='" . $row['recipe_name'] . "'>
-            <div class='card-body'>
-                <h4 class='card-title text-center'><i>" . $row['recipe_name'] . "</i></h4>
-                <ul class='list-unstyled mb-3'>
-                    <li><strong>Type:</strong> " . $row['type'] . "</li>
-                    <li><strong>Preparation time:</strong> " . $row['prep_time'] . "</li>
-                    <li><strong>Calories:</strong> " . $row['calories'] . "</li>
-                    <li><strong>Diet:</strong> " . $row['meal_type'] . "</li>
-                </ul>
-                <div class='d-flex justify-content-center'>
-                    <a href='details.php?id=" . $row['recipes_id'] . "' class='btn btn-success btn-sm mr-2 mx-2' role='button'>More Info</a>
-                    <a href='dateselect.php?id=" . $row['recipes_id'] . "&type=" . $row['type'] . "' class='btn btn-primary btn-sm' role='button'>Add to Plan</a>
+    if (mysqli_num_rows($result) > 0 ){
+        while ($row =mysqli_fetch_assoc($result)){
+            $filter .= "<div class='col-md-4 mb-4'>
+            <div class='card h-100 shadow'>
+                <img src='" . $row['url'] . "' class='card-img-top' style='object-fit: cover; height: 200px;' alt='" . $row['recipe_name'] . "'>
+                <div class='card-body'>
+                    <h4 class='card-title text-center'><i>" . $row['recipe_name'] . "</i></h4>
+                    <ul class='list-unstyled mb-3'>
+                        <li><strong>Type:</strong> " . $row['type'] . "</li>
+                        <li><strong>Preparation time:</strong> " . $row['prep_time'] . "</li>
+                        <li><strong>Calories:</strong> " . $row['calories'] . "</li>
+                        <li><strong>Diet:</strong> " . $row['meal_type'] . "</li>
+                    </ul>
+                    <div class='d-flex justify-content-center'>
+                        <a href='details.php?id=" . $row['recipes_id'] . "' class='btn btn-success btn-sm mr-2 mx-2' role='button'>More Info</a>
+                        <a href='dateselect.php?id=" . $row['recipes_id'] . "&type=" . $row['type'] . "' class='btn btn-primary btn-sm' role='button'>Add to Plan</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>";
+        </div>";
+        }
+    }else {
+        $filter .= "No Results Found";
     }
-} else {
-    $cards = "<p>No results found</p>";
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -85,7 +75,7 @@ if (mysqli_num_rows($result) > 0) {
 
 
 
-    <?php echo $cards ?>
+    <?php echo $filter ?>
     <div class="footer">
         <?php require_once '../components/footer.php' ?>
 
