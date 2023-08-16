@@ -13,7 +13,6 @@ if(isset($_POST["sign-up"])){
 $fname=clear($_POST["fname"]);
 $lname=clear($_POST["lname"]);
 $email=clear($_POST["email"]);
-$role=$_POST["role"];
 $password=$_POST["pass"];
 
 if(empty($fname)){
@@ -51,7 +50,7 @@ $errorpassword="no";
 }
 }if(!$error){
     $password = hash("sha256", $password);
-$sql="INSERT INTO `users`(`fname`, `lname`, `email`,    `pass`) VALUES ('$fname','$lname','$email','$password')";
+$sql="INSERT INTO `users`(`fname`, `lname`, `email`,   `pass`) VALUES ('$fname','$lname','$email','$password')";
 $result=mysqli_query($connect,$sql);
 header("Location: homepage.php");
 
@@ -99,8 +98,8 @@ header("Location: homepage.php");
               
                     
                 <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" name="password">
+                    <label for="pass" class="form-label">Password</label>
+                    <input type="pass" class="form-control" id="pass" name="pass">
                     <span class="text-danger"><?= $errorpassword ?></span>
                 </div>
                 <button name="sign-up" type="submit" class="btn btn-primary">join</button>
