@@ -1,8 +1,8 @@
 <?php
 include "../db_connect.php";
 $error=false;
-$fname=$lname=$email=$password=$role="";
-$errorfname=$errorlname=$erroremail=$errorpassword="";
+$fname=$lname=$email=$password=$role=$picture="";
+$errorfname=$errorlname=$erroremail=$errorpassword=$errorpicture="";
 function clear($input){
 $data=trim($input);
 $data=strip_tags($data);
@@ -14,6 +14,7 @@ $fname=clear($_POST["fname"]);
 $lname=clear($_POST["lname"]);
 $email=clear($_POST["email"]);
 $password=$_POST["pass"];
+$picture=$_POST["picture"];
 
 if(empty($fname)){
 $error=true;
@@ -30,6 +31,15 @@ $errorlname="please write your last name";
 }elseif(strlen($lname)<2){
 $error=true;
 $errorlname="no";
+
+
+}if(empty($picture)){
+    $error=true;
+    $errorpicture="please write the image link";
+    }elseif(strlen($picture)<2){
+    $error=true;
+    $errorpicture="no";
+    
 
 
 }
@@ -50,9 +60,9 @@ $errorpassword="no";
 }
 }if(!$error){
     $password = hash("sha256", $password);
-$sql="INSERT INTO `users`(`fname`, `lname`, `email`,   `pass`) VALUES ('$fname','$lname','$email','$password')";
+$sql="INSERT INTO `users`( `fname`, `lname`, `email`, `pass`,  `picture`) VALUES ('$fname','$lname','$email','$password','$picture')";
 $result=mysqli_query($connect,$sql);
-header("Location: homepage.php");
+header("Location: login.php");
 
 }
 }
@@ -95,11 +105,15 @@ header("Location: homepage.php");
                     <input type="email" class="form-control" id="email" name="email" placeholder="" value="<?= $email ?>">
                     <span class="text-danger"><?= $erroremail ?></span>
                 </div>
+                <label for="picture" class="form-label">Image link</label>
+                    <input type="text" class="form-control" id="picture" name="picture" placeholder="" value="<?= $picture ?>">
+                    <span class="text-danger"><?= $errorpicture ?></span>
+                    <div class="mb-3">
               
                     
                 <div class="mb-3">
                     <label for="pass" class="form-label">Password</label>
-                    <input type="pass" class="form-control" id="pass" name="pass">
+                    <input type="password" class="form-control" id="pass" name="pass">
                     <span class="text-danger"><?= $errorpassword ?></span>
                 </div>
                 <button name="sign-up" type="submit" class="btn btn-primary">join</button>

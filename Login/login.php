@@ -30,7 +30,7 @@ function clear($input){
                     if(mysqli_num_rows($result)==1){
                     if($row["role"]=="user"){
                     $_SESSION["user"]=$row["user_id"];
-                    header("Location: homepage.php");
+                    header("Location: ../home_user/home.php");
                     }else{
                         $_SESSION["adm"]=$row["user_id"];
                         header("Location: dashboard.php");
@@ -63,7 +63,7 @@ function clear($input){
                 </div>
                 <div class="mb-3">
                     <label for="pass" class="form-label">Password</label>
-                    <input type="pass" class="form-control" id="pass" name="pass">
+                    <input type="password" class="form-control" id="pass" name="pass">
                     <span class="text-danger"><?= $errorpassword ?></span>
                 </div>
                 <button name="login" type="submit" class="btn btn-primary">Login</button>
