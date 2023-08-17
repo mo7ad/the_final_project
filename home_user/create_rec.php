@@ -44,6 +44,7 @@ $rowUs = mysqli_fetch_assoc($resultUs);
   </head>
 </head>
 <body>
+<?php require_once '../components/navbar.php' ?>
 <div class="container">
 
 <form class="well form-horizontal" action=" " method="post"  id="contact_form">
@@ -88,7 +89,7 @@ $rowUs = mysqli_fetch_assoc($resultUs);
 </div>
 
 
-<!-- Text input-->
+
    
 <div class="form-group">
 <label class="col-md-4 control-label">Picture</label>

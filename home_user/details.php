@@ -29,6 +29,7 @@
 </head>
 
 <body>
+<?php require_once '../components/navbar.php' ?>
   <div class="wrapper">
     <div class="product-img">
       <img src="<?php echo $row["url"]; ?>" height="420" width="327">
@@ -36,8 +37,8 @@
     <div class="product-info">
       <div class="product-text">
         <h1><?php echo $row["recipe_name"]; ?></h1>
-        <p><?php echo $row["description"]; ?></p>
         <p><?php echo $row["ingredients"]; ?></p>
+        <p><?php echo $row["description"]; ?></p>
       </div>
       <div class="product-price-btn">
         <p><span><p><?php echo $row["calories"]; ?><br><?php echo $row["prep_time"]; ?></p></span></p>
@@ -47,6 +48,8 @@
       
     </div>
   </div>
+  <div class="footer">
+        <?php require_once '../components/footer.php' ?>
 
 </body>
 
