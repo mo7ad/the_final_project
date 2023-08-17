@@ -1,10 +1,10 @@
 <?php
-require_once "db_connect.php";
+require_once "../db_connect.php";
 
 
 $id = $_GET["recipes_id"];
 
-$sql = "SELECT * FROM recipes WHERE recipes_id = $id ";
+$sql = "SELECT * FROM recipes WHERE recipes_id = $id";
 $result = mysqli_query($connect, $sql);
 $row = mysqli_fetch_assoc($result);
 
@@ -124,13 +124,9 @@ if (isset($_POST["update"])) {
         </div>
     </div>
 
-    <footer class="navbar navbar-expand-lg bg-body-tertiary fixed-bottom">
-        <div class="container-fluid d-flex justify-content-center">
-            <div class="text-center p-3" style="font-size: 18px;">
-                <strong>© 2023 Copyright: Emelin Bilajbegovic</strong>
-            </div>
-        </div>
-    </footer>
+    <div class="footer">
+        <?php require_once '../components/footer.php' ?>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
