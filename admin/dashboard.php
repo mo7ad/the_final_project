@@ -26,7 +26,7 @@ $cards = "";
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
         $cards .= "<div>
-               <div class='card'>
+               <div class='card my-3'>
                    <img src='{$row["url"]}' class='card-img-top' alt='...'>
                    <div class='card-body'>
                    <h5 class='card-title'>{$row["recipe_name"]}</h5>
@@ -84,16 +84,17 @@ mysqli_close($connect);
     <?php require_once '../components/navbar.php' ?>
 
 
-    <h2 class="text-center">Welcome <?= $rowPersons["fname"] . " " . $rowPersons["lname"] ?></h2>
+    <h1 class="text-center my-4">Welcome <?= $rowPersons["fname"] . " " . $rowPersons["lname"] ?></h1>
 
-    <form class="d-flex">
+    <!--  <form class="d-flex mx-5">
         <a href='create.php?id=$row[' recipes_id']' class='btn btn-warning '>Create</a>
-    </form>
+    </form> -->
 
 
 
 
     <div class="container">
+        <a href='create.php?id=$row[' recipes_id']' class='btn btn-warning my-3'>Create</a>
         <div class="row row-cols-lg-3 ">
             <?php echo $cards; ?>
         </div>
