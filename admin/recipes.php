@@ -9,33 +9,13 @@ if (isset($_SESSION["user"])) {
 }
 
 if (!isset($_SESSION["user"]) && !isset($_SESSION["admin"])) {
-    header("location: ../Login/login.php");
+    header("location: ../login/login.php");
     exit();
 }
 
 $sqlPersons = "SELECT * FROM `users`";
 $resultPersons = mysqli_query($connect, $sqlPersons);
 $rowPersons = mysqli_fetch_assoc($resultPersons);
-
-$layout = "";
-
-if (mysqli_num_rows($resultPersons) > 0) {
-    while ($userPerson = mysqli_fetch_assoc($resultPersons)) {
-        $layout .= "<div>
-            <div class='card mb-5 card_users' style='width: 18rem;'>
-                <img src='{$userPerson["picture"]}' class='card-img-top' alt='...' style='height: 300px; object-fit: cover;'>
-                <div class='card-body'>
-                    <h5 class='card-title'>User: {$userPerson["fname"]} {$userPerson["lname"]}</h5>
-                    <p class='card-text fs-5'>Email: {$userPerson["email"]}</p>
-                    <a href='update_user.php?id={$userPerson["user_id"]}' class='btn btn-warning'>Update</a>
-                    <a href='delete_user.php?id={$userPerson["user_id"]}' class='btn btn-danger'>Delete</a>
-                </div>
-            </div>
-        </div>";
-    }
-} else {
-    $layout .= "No results found!";
-}
 
 
 $sql = "SELECT * FROM `recipes`";
@@ -46,17 +26,17 @@ $cards = "";
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
         $cards .= "<div>
-               <div class='card card_recipe my-3 '>
+               <div class='card card_recipe m-2 mb-5'>
                    <img src='{$row["url"]}' class='card-img-top' alt='...' style='height: 340px; object-fit: cover;'>
                    <div class='card-body'>
-                   <h5 class='card-title'>Recipe: {$row["recipe_name"]}</h5>
-                   <p class='card-text fs-5'>Time to prepare: {$row["prep_time"]}</p>
-                   <p class='card-text fs-5'>Type: {$row["type"]}</p>
-                   <p class='card-text fs-5'>Meal time: {$row["meal_type"]}</p>
+                   <h5 class='card-title'>{$row["recipe_name"]}</h5>
+                   <p class='card-text'> {$row["prep_time"]}</p>
+                   <p class='card-text'> {$row["type"]}</p>
+                   <p class='card-text'> {$row["meal_type"]}</p>
                    
                    <button type='button' class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#exampleModal{$row['recipes_id']}'>Delete
                 </button>
-                   <a href='../admin/update_rec.php?id={$row['recipes_id']}' class='btn btn-success'>Update</a>
+                   <a href='../home_user/update.php?id={$row['recipes_id']}' class='btn btn-success'>Update</a>
                    <a href='../home_user/details.php?id={$row['recipes_id']}' class='btn btn-success'>Details</a>
                    </div>
            </div>
@@ -101,26 +81,9 @@ mysqli_close($connect);
 </head>
 
 <body class="background_user">
-    <?php require_once '../components/admin_navbar.php' ?>
+    <?php require_once '../components/navbar.php' ?>
 
-
-    <h1 class="text_1 text-center my-4">Welcome <?= $rowPersons["fname"] . " " . $rowPersons["lname"] ?></h1>
-
-
-
-
-    <div class="container">
-        <p class="text-white fs-4">Click on the button if you want to create a new recipe:</p>
-        <form class="my-4">
-            <a href='create_rec.php' class='btn btn-warning '>Create</a>
-        </form>
-        <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-1 row-cols-xs-1">
-            <?= $layout ?>
-        </div>
-    </div>
-
-
-    <hr class="border border-light border-4 opacity-50">
+    <h2 class="text-center text_1 my-5">Welcome <?= $rowPersons["fname"] . " " . $rowPersons["lname"] ?></h2>
 
     <div class="container">
         <div class="row row-cols-lg-3 ">
@@ -132,7 +95,6 @@ mysqli_close($connect);
         <?php require_once '../components/footer.php' ?>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-
 
 </body>
 
