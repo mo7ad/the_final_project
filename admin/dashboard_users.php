@@ -9,7 +9,7 @@ if (isset($_SESSION["user"])) {
 }
 
 if (!isset($_SESSION["user"]) && !isset($_SESSION["admin"])) {
-    header("location: ../login/login.php");
+    header("location: ../Login/login.php");
     exit();
 }
 
@@ -101,17 +101,19 @@ mysqli_close($connect);
 </head>
 
 <body class="background_user">
-    <?php require_once '../components/navbar.php' ?>
+    <?php require_once '../components/admin_navbar.php' ?>
 
 
     <h1 class="text_1 text-center my-4">Welcome <?= $rowPersons["fname"] . " " . $rowPersons["lname"] ?></h1>
 
-    <form class="d-flex mx-5">
-        <a href='create_rec.php' class='btn btn-warning '>Create</a>
-    </form>
+
 
 
     <div class="container">
+        <p class="text-white fs-4">Click on the button if you want to create a new recipe:</p>
+        <form class="my-4">
+            <a href='create_rec.php' class='btn btn-warning '>Create</a>
+        </form>
         <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-1 row-cols-xs-1">
             <?= $layout ?>
         </div>
@@ -121,7 +123,6 @@ mysqli_close($connect);
     <hr class="border border-light border-4 opacity-50">
 
     <div class="container">
-        <!-- <a href='create_rec.php?id=$row[' recipes_id']' class='btn btn-warning my-3'>Create</a> -->
         <div class="row row-cols-lg-3 ">
             <?php echo $cards; ?>
         </div>
