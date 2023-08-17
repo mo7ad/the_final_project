@@ -36,7 +36,7 @@ if (mysqli_num_rows($result) > 0) {
                    
                    <button type='button' class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#exampleModal{$row['recipes_id']}'>Delete
                 </button>
-                   <a href='../home_user/update_rec.php?id={$row['recipes_id']}' class='btn btn-success'>Update</a>
+                   <a href='../admin/update_rec.php?id={$row['recipes_id']}' class='btn btn-success'>Update</a>
                    <a href='../home_user/details.php?id={$row['recipes_id']}' class='btn btn-success'>Details</a>
                    </div>
            </div>
@@ -94,7 +94,8 @@ mysqli_close($connect);
 
 
     <div class="container">
-        <a href='create_rec.php?id=$row[' recipes_id']' class='btn btn-warning my-3'>Create</a>
+        <a href="create_rec.php?id=<?php echo $row['recipes_id']; ?>" class="btn btn-warning my-3">Create</a>
+
         <div class="row row-cols-lg-3 ">
             <?php echo $cards; ?>
         </div>
