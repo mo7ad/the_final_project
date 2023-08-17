@@ -17,6 +17,26 @@ $sqlPersons = "SELECT * FROM `users`";
 $resultPersons = mysqli_query($connect, $sqlPersons);
 $rowPersons = mysqli_fetch_assoc($resultPersons);
 
+$layout = "";
+
+if (mysqli_num_rows($resultPersons) > 0) {
+    while ($userPerson = mysqli_fetch_assoc($resultPersons)) {
+        $layout .= "<div>
+            <div class='card mb-5' style='width: 18rem;'>
+                <img src='{$userPerson["picture"]}' class='card-img-top' alt='...' style='height: 300px; object-fit: cover;'>
+                <div class='card-body'>
+                    <h5 class='card-title'>{$userPerson["fname"]} {$userRow["lname"]}</h5>
+                    <p class='card-text'>{$userPerson["email"]}</p>
+                    <a href='update_user.php?id={$userPerson["id"]}' class='btn btn-warning'>Update</a>
+                    <a href='delete_user.php?id={$userPerson["id"]}' class='btn btn-danger'>Delete</a>
+                </div>
+            </div>
+        </div>";
+    }
+} else {
+    $layout .= "No results found!";
+}
+
 
 $sql = "SELECT * FROM `recipes`";
 $result = mysqli_query($connect, $sql);
@@ -89,9 +109,16 @@ mysqli_close($connect);
     <form class="d-flex mx-5">
         <a href='create_rec.php?id=$row[' recipes_id']' class='btn btn-warning '>Create</a>
     </form>
-    
 
 
+    <div class="container">
+        <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-1 row-cols-xs-1">
+            <?= $layout ?>
+        </div>
+    </div>
+
+
+    <hr>
 
     <div class="container">
         <!-- <a href='create_rec.php?id=$row[' recipes_id']' class='btn btn-warning my-3'>Create</a> -->
