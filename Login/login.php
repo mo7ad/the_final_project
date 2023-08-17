@@ -33,7 +33,7 @@ function clear($input){
                     header("Location: ../home_user/home.php");
                     }elseif($row["role"]=="admin"){
                         $_SESSION["admin"]=$row["user_id"];
-                        header("Location: dashboard.php");
+                        header("Location: ../admin/dashboard.php");
                     }elseif($row["role"]=="blocked"){
                         $_SESSION["blocked"]=$row["user_id"];
                         header("Location:../home_user/blocked.php");
