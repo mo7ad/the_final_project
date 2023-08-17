@@ -18,12 +18,13 @@ if (isset($_POST["create"])) {
     $prep_time = $_POST["prep_time"];
     $calories = $_POST["calories"];
     $type = $_POST["type"];
+    $verified = $_POST["verified"];
     $url = $_POST["url"];
     $meal_type = $_POST["meal_type"];
     $ingredients = $_POST["ingredients"];
 
 
-    $sql = "INSERT INTO recipes (recipe_name,description,prep_time,calories,type,url,meal_type,ingredients,fk_user_id) VALUES ('$recipe_name','$description','$prep_time','$calories','$type','$url','$meal_type','$ingredients',$userID)";
+    $sql = "INSERT INTO recipes (recipe_name,description,prep_time,calories,type,url,verified,meal_type,ingredients,fk_user_id) VALUES ('$recipe_name','$description','$prep_time','$calories','$type','$url','$verified'. '$meal_type','$ingredients',$userID)";
 
     if (mysqli_query($connect, $sql)) {
         echo "success";
@@ -40,8 +41,8 @@ if (isset($_POST["create"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title< /title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>Create Recipe</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 </head>
 
