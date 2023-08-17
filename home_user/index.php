@@ -18,7 +18,7 @@ $cards = "";
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
 
-        $cards .= "<div class='col-md-4 mb-4'>
+        $cards .= "<div class='row-md-4 mb-4'>
         <div class='card h-100 shadow'>
             <img src='" . $row['url'] . "' class='card-img-top' style='object-fit: cover; height: 200px;' alt='" . $row['recipe_name'] . "'>
             <div class='card-body'>
@@ -83,8 +83,11 @@ if (mysqli_num_rows($result) > 0) {
     </div>
 
 
-
-    <?php echo $cards ?>
+    <div class="container">
+        <div class="row row-cols-lg-3 ">
+            <?php echo $cards; ?>
+        </div>
+    </div>
     <div class="footer">
         <?php require_once '../components/footer.php' ?>
 
