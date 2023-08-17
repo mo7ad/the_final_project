@@ -254,7 +254,10 @@
   /* background-position: center; */
 }
 
-h1 {
+.text_1 {
+  color: white;
+  font-size: 60px;
   font-family: 'Courgette', cursive;
   font-family: 'Dancing Script', cursive;
+  text-shadow: 3px 3px 3px yellow;
 }

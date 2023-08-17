@@ -104,7 +104,7 @@ mysqli_close($connect);
     <?php require_once '../components/navbar.php' ?>
 
 
-    <h1 class="text-center text-white my-4">Welcome <?= $rowPersons["fname"] . " " . $rowPersons["lname"] ?></h1>
+    <h1 class="text_1 text-center my-4">Welcome <?= $rowPersons["fname"] . " " . $rowPersons["lname"] ?></h1>
 
     <form class="d-flex mx-5">
         <a href='create_rec.php' class='btn btn-warning '>Create</a>
