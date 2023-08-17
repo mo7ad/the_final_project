@@ -237,3 +237,14 @@
 }
 
 /*End Footer*/
+
+/* ADMIN FOLDER CSS */
+/* STARTS HERE */
+
+/* 1. BACKGROUND CSS FOR DASHBOARD_USERS*/
+
+.background_user {
+  background-image: url('https://cdn.pixabay.com/photo/2018/08/14/13/23/ocean-3605547_1280.jpg');
+  background-size: cover;
+  /* background-position: center; */
+}

@@ -25,10 +25,10 @@ if (mysqli_num_rows($resultPersons) > 0) {
             <div class='card mb-5' style='width: 18rem;'>
                 <img src='{$userPerson["picture"]}' class='card-img-top' alt='...' style='height: 300px; object-fit: cover;'>
                 <div class='card-body'>
-                    <h5 class='card-title'>{$userPerson["fname"]} {$userRow["lname"]}</h5>
+                    <h5 class='card-title'>{$userPerson["fname"]} {$userPerson["lname"]}</h5>
                     <p class='card-text'>{$userPerson["email"]}</p>
-                    <a href='update_user.php?id={$userPerson["id"]}' class='btn btn-warning'>Update</a>
-                    <a href='delete_user.php?id={$userPerson["id"]}' class='btn btn-danger'>Delete</a>
+                    <a href='update_user.php?id={$userPerson["user_id"]}' class='btn btn-warning'>Update</a>
+                    <a href='delete_user.php?id={$userPerson["user_id"]}' class='btn btn-danger'>Delete</a>
                 </div>
             </div>
         </div>";
@@ -100,14 +100,14 @@ mysqli_close($connect);
     <title>Welcome <?= $rowPersons["fname"] ?></title>
 </head>
 
-<body>
+<body class="background_user">
     <?php require_once '../components/navbar.php' ?>
 
 
     <h1 class="text-center my-4">Welcome <?= $rowPersons["fname"] . " " . $rowPersons["lname"] ?></h1>
 
     <form class="d-flex mx-5">
-        <a href='create_rec.php?id=$row[' recipes_id']' class='btn btn-warning '>Create</a>
+        <a href='create_rec.php' class='btn btn-warning '>Create</a>
     </form>
 
 
@@ -118,7 +118,7 @@ mysqli_close($connect);
     </div>
 
 
-    <hr>
+    <hr class="border border-light border-4 opacity-50">
 
     <div class="container">
         <!-- <a href='create_rec.php?id=$row[' recipes_id']' class='btn btn-warning my-3'>Create</a> -->
