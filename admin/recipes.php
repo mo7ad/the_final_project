@@ -86,6 +86,9 @@ mysqli_close($connect);
     <h2 class="text-center text_1 my-5">Welcome <?= $rowPersons["fname"] . " " . $rowPersons["lname"] ?></h2>
 
     <div class="container">
+        <form class="my-4">
+            <a href='create_rec.php' class='btn btn-warning '>Create</a>
+        </form>
         <div class="row row-cols-lg-3 ">
             <?php echo $cards; ?>
         </div>
