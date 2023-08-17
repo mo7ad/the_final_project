@@ -86,15 +86,15 @@ mysqli_close($connect);
 
     <h1 class="text-center my-4">Welcome <?= $rowPersons["fname"] . " " . $rowPersons["lname"] ?></h1>
 
-    <!--  <form class="d-flex mx-5">
-        <a href='create.php?id=$row[' recipes_id']' class='btn btn-warning '>Create</a>
-    </form> -->
-
+    <form class="d-flex mx-5">
+        <a href='create_rec.php?id=$row[' recipes_id']' class='btn btn-warning '>Create</a>
+    </form>
+    
 
 
 
     <div class="container">
-        <a href='create_rec.php?id=$row[' recipes_id']' class='btn btn-warning my-3'>Create</a>
+        <!-- <a href='create_rec.php?id=$row[' recipes_id']' class='btn btn-warning my-3'>Create</a> -->
         <div class="row row-cols-lg-3 ">
             <?php echo $cards; ?>
         </div>
