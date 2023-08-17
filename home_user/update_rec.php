@@ -2,29 +2,23 @@
 require_once "db_connect.php";
 
 
-$id = $_GET["id"];
+$id = $_GET["recipes_id"];
 
-$sql = "SELECT * FROM animal WHERE id_pet = $id ";
+$sql = "SELECT * FROM recipes WHERE recipes_id = $id ";
 $result = mysqli_query($connect, $sql);
 $row = mysqli_fetch_assoc($result);
 
 if (isset($_POST["update"])) {
     $recipe_name = $_POST["recipe_name"];
-    $url = $_POST["url"];
-    $description = str_replace("'", "&#39;", $_POST["description"]);
     $prep_time = $_POST["prep_time"];
+    $description = $_POST["description"];
     $calories = $_POST["calories"];
     $type = $_POST["type"];
     $verified = $_POST["verified"];
+    $url = $_POST["url"];
     $meal_type = $_POST["meal_type"];
     $ingredients = $_POST["ingredients"];
-   
 
-    if ($_FILES["image"]["error"] === 4) {
-        $sql = "UPDATE animal SET name='$name', location='$location', description='$description', size='$size', age='$age', vaccinated='$vaccinated', breed='$breed', status='$status' WHERE id_pet=$id";
-    } else {
-        $sql = "UPDATE animal SET name='$name', image='$image[0]', location='$location', description='$description', size='$size', age='$age', vaccinated='$vaccinated', breed='$breed', status='$status' WHERE id_pet=$id";
-    }
 
     if (mysqli_query($connect, $sql)) {
         echo "<span class='text_1'>Success</span>";
@@ -55,89 +49,76 @@ if (isset($_POST["update"])) {
 
 </head>
 
-<body class="bg-success text-dark bg-opacity-50" style="height: 200vh">
+<body>
+    <?php require_once '../components/navbar.php' ?>
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary py-3">
-        <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="home.php" style="font-size: 20px;">Home</a>
-                    </li>
-                    <!-- Add more menu items below -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="register.php" style="font-size: 20px;">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://codefactory.wien/de/contact-de/" target="_blank" style="font-size: 20px;">Contact Help</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="logout.php?logout" style="font-size: 20px;">Logout</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
 
     <div class="container mt-5">
         <div class="card shadow-lg">
             <div class="card-header bg-primary text-white">
-                <h4 class="m-0">Update the pet data</h4>
+                <h4 class="m-0">Update your recipe</h4>
             </div>
             <div class="card-body">
                 <form method="post" enctype="multipart/form-data">
                     <div class="mb-3">
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" value="<?= $row["name"] ?>">
+                        <label for="recipe_name" class="form-label">Recipe Name</label>
+                        <input type="text" class="form-control" id="recipe_name" name="recipe_name" value="<?= $row["recipe_name"] ?>">
                     </div>
+
                     <div class="row mb-3">
                         <div class="col">
-                            <label for="location" class="form-label">Location</label>
-                            <input type="text" class="form-control" id="location" name="location" value="<?= $row["location"] ?>">
+                            <label for="prep_time" class="form-label">Preparation Time</label>
+                            <input type="text" class="form-control" id="prep_time" name="prep_time" value="<?= $row["prep_time"] ?>">
                         </div>
                     </div>
+
                     <div class="mb-3">
-                        <label for="image" class="form-label">Image URL</label>
-                        <input type="file" class="form-control" id="image" name="image" value="<?= $row["image"] ?>">
+                        <label for="calories" class="form-label">Calories</label>
+                        <input type="text" class="form-control" id="calories" name="calories" value="<?= $row["alories"] ?>">
                     </div>
+
                     <div class="mb-3">
-                        <label for="size" class="form-label">Size</label>
-                        <input type="text" class="form-control" id="size" name="size" value="<?= $row["size"] ?>">
+                        <label for="url" class="form-label">Picture URL</label>
+                        <input type="text" class="form-control" id="url" name="url" value="<?= $row["url"] ?>">
                     </div>
+
                     <div class="mb-3">
-                        <label for="age" class="form-label">Age</label>
-                        <input type="text" class="form-control" id="age" name="age" value="<?= $row["age"] ?>">
+                        <label for="verified" class="form-label">Verify</label>
+                        <input type="text" class="form-control" id="verified" name="verified" value="<?= $row["verified"] ?>">
                     </div>
+
                     <div class="mb-3">
-                        <label for="vaccinated" class="form-label">Vaccinated</label>
-                        <select class="form-control" id="vaccinated" name="vaccinated" value="<?= $row["vaccinated"] ?>">
-                            <option value="0">NO</option>
-                            <option value="1">YES</option>
+                        <label for="meal_type" class="form-label">Meal time</label>
+                        <select class="form-control" id="meal_type" name="meal_type" value="<?= $row["meal_type"] ?>">
+                            <option value="breakfast">Breakfast</option>
+                            <option value="lunch">Lunch</option>
+                            <option value="dinner">Dinner</option>
                         </select>
                     </div>
+
                     <div class="mb-3">
-                        <label for="breed" class="form-label">Breed</label>
-                        <input type="text" class="form-control" id="breed" name="breed" value="<?= $row["breed"] ?>">
-                    </div>
-                    <div class="mb-3">
-                        <label for="status" class="form-label">Status</label>
-                        <select class="form-control" id="status" name="status" value="<?= $row["status"] ?>">
-                            <option value="0">Adopted</option>
-                            <option value="1">Available</option>
+                        <label for="type" class="form-label">Meal type</label>
+                        <select class="form-control" id="type" name="type" value="<?= $row["type"] ?>">
+                            <option value="vegan">Vegan</option>
+                            <option value="vegeterian">Vegeterian</option>
+                            <option value="normal">Normal</option>
                         </select>
                     </div>
+
                     <div class="mb-3">
-                        <label for="description" class="form-label">Description</label>
-                        <textarea class="form-control" id="description" name="description" rows="6"><?= $row["description"] ?></textarea>
+                        <label for="ingredients" class="form-label">Ingredients</label>
+                        <textarea class="form-control" id="ingredients" name="ingredients" rows="4" value="<?= $row["ingredients"] ?>"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Preparation description</label>
+                        <textarea class="form-control" id="description" name="description" rows="6" value="<?= $row["description"] ?>"></textarea>
                     </div>
 
 
                     <button type="submit" name="update" class="btn btn-success btn-lg">Update</button>
-                    <a href='index.php' class='btn btn-primary btn-lg' style='width: auto;'>Dashboard</a>
+                    <a href='home.php' class='btn btn-primary btn-lg' style='width: auto;'>Home</a>
                 </form>
             </div>
         </div>
