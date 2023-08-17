@@ -32,7 +32,7 @@ if (isset($_POST["login"])) {
                 header("Location: ../home_user/home.php");
             } elseif ($row["role"] == "admin") {
                 $_SESSION["admin"] = $row["user_id"];
-                header("Location: ../admin/dashboard.php");
+                header("Location: ../admin/dashboard_users.php");
             } elseif ($row["role"] == "blocked") {
                 $_SESSION["blocked"] = $row["user_id"];
                 header("Location:../home_user/blocked.php");
