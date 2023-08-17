@@ -26,8 +26,8 @@ $cards = "";
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
         $cards .= "<div>
-               <div class='card'>
-                   <img src='{$row["url"]}' class='card-img-top' alt='...'>
+               <div class='card mb-4'>
+                   <img src='{$row["url"]}' class='card-img-top' alt='...' style='height: 340px; object-fit: cover;'>
                    <div class='card-body'>
                    <h5 class='card-title'>{$row["recipe_name"]}</h5>
                    <p class='card-text'> {$row["prep_time"]}</p>
@@ -83,11 +83,9 @@ mysqli_close($connect);
 <body>
     <?php require_once '../components/navbar.php' ?>
 
-    <h2 class="text-center">Welcome <?= $rowPersons["fname"] . " " . $rowPersons["lname"] ?></h2>
+    <h2 class="text-center my-5">Welcome <?= $rowPersons["fname"] . " " . $rowPersons["lname"] ?></h2>
 
-    <form class="d-flex">
-        <a href='create.php?id=$row[' recipes_id']' class='btn btn-warning '>Create</a>
-    </form>
+
 
 
 
@@ -97,7 +95,12 @@ mysqli_close($connect);
             <?php echo $cards; ?>
         </div>
     </div>
-    <?php require_once '../components/footer.php' ?>
+
+    <div class="footer">
+        <?php require_once '../components/footer.php' ?>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

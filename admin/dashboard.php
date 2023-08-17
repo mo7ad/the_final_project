@@ -94,13 +94,18 @@ mysqli_close($connect);
 
 
     <div class="container">
-        <a href="create_rec.php?id=<?php echo $row['recipes_id']; ?>" class="btn btn-warning my-3">Create</a>
-
+        <a href='create_rec.php?id=$row[' recipes_id']' class='btn btn-warning my-3'>Create</a>
         <div class="row row-cols-lg-3 ">
             <?php echo $cards; ?>
         </div>
     </div>
-    <?php require_once '../components/footer.php' ?>
+
+    <div class="footer">
+        <?php require_once '../components/footer.php' ?>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+
 </body>
 
 </html>
