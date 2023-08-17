@@ -38,7 +38,7 @@ if (mysqli_num_rows($result) > 0) {
     </div>";
     }
 } else {
-    $cards = "<p>No results found</p>";
+    $cards = "<p>No results found!</p>";
 }
 
 
