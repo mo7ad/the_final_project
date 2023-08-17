@@ -81,7 +81,7 @@ mysqli_close($connect);
 </head>
 
 <body class="background_user">
-    <?php require_once '../components/navbar.php' ?>
+    <?php require_once '../components/admin_navbar.php' ?>
 
     <h2 class="text-center text_1 my-5">Welcome <?= $rowPersons["fname"] . " " . $rowPersons["lname"] ?></h2>
 

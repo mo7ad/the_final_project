@@ -38,54 +38,7 @@ if (mysqli_num_rows($resultPersons) > 0) {
 }
 
 
-$sql = "SELECT * FROM `recipes`";
-$result = mysqli_query($connect, $sql);
 
-$cards = "";
-
-if (mysqli_num_rows($result) > 0) {
-    while ($row = mysqli_fetch_assoc($result)) {
-        $cards .= "<div>
-               <div class='card card_recipe my-3 '>
-                   <img src='{$row["url"]}' class='card-img-top' alt='...' style='height: 340px; object-fit: cover;'>
-                   <div class='card-body'>
-                   <h5 class='card-title'>Recipe: {$row["recipe_name"]}</h5>
-                   <p class='card-text fs-5'>Time to prepare: {$row["prep_time"]}</p>
-                   <p class='card-text fs-5'>Type: {$row["type"]}</p>
-                   <p class='card-text fs-5'>Meal time: {$row["meal_type"]}</p>
-                   
-                   <button type='button' class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#exampleModal{$row['recipes_id']}'>Delete
-                </button>
-                   <a href='../admin/update_rec.php?id={$row['recipes_id']}' class='btn btn-success'>Update</a>
-                   <a href='../home_user/details.php?id={$row['recipes_id']}' class='btn btn-success'>Details</a>
-                   </div>
-           </div>
-         </div>
-         <!-- Button trigger modal -->
-
-
-<!-- Modal -->
-<div class='modal fade' id='exampleModal{$row['recipes_id']}' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-  <div class='modal-dialog'>
-    <div class='modal-content'>
-      <div class='modal-header'>
-        <h1 class='modal-title fs-5' id='exampleModalLabel'>Modal title</h1>
-        <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-      </div>
-        <div class='modal-body'>
-        Are you sure you want to delete the record?
-        </div>
-      <div class='modal-footer'>
-        <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>NO</button>
-        <a href='delete.php?id={$row['recipes_id']}' class='btn btn-danger'>YES</a>
-        </div>
-        </div>
-        </div>
-        </div>";
-    }
-} else {
-    $cards = "<p>No results found</p>";
-}
 
 mysqli_close($connect);
 ?>
@@ -110,9 +63,9 @@ mysqli_close($connect);
 
 
     <div class="container">
-        <p class="text-white fs-4">Click on the button if you want to create a new recipe:</p>
+        <p class="text-white fs-4">Click down to create a new user:</p>
         <form class="my-4">
-            <a href='create_rec.php' class='btn btn-warning '>Create</a>
+            <a href='create_user.php' class='btn btn-warning '>Create</a>
         </form>
         <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-1 row-cols-xs-1">
             <?= $layout ?>
@@ -120,13 +73,7 @@ mysqli_close($connect);
     </div>
 
 
-    <hr class="border border-light border-4 opacity-50">
 
-    <div class="container">
-        <div class="row row-cols-lg-3 ">
-            <?php echo $cards; ?>
-        </div>
-    </div>
 
     <div class="footer">
         <?php require_once '../components/footer.php' ?>
