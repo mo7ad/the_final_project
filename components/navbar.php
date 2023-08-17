@@ -87,15 +87,15 @@
             }
             ?>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="../Login/login.php">Login</a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="../Login/logout.php">Logout</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="../Login/register.php">Sign Up</a>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
