@@ -27,7 +27,7 @@ if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
         $cards .= "<div>
                <div class='card my-3'>
-                   <img src='{$row["url"]}' class='card-img-top' alt='...'>
+                   <img src='{$row["url"]}' class='card-img-top' alt='...' style='height: 340px; object-fit: cover;'>
                    <div class='card-body'>
                    <h5 class='card-title'>{$row["recipe_name"]}</h5>
                    <p class='card-text'> {$row["prep_time"]}</p>
@@ -94,7 +94,7 @@ mysqli_close($connect);
 
 
     <div class="container">
-        <a href='create.php?id=$row[' recipes_id']' class='btn btn-warning my-3'>Create</a>
+        <a href='create_rec.php?id=$row[' recipes_id']' class='btn btn-warning my-3'>Create</a>
         <div class="row row-cols-lg-3 ">
             <?php echo $cards; ?>
         </div>
