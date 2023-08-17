@@ -15,6 +15,6 @@ if (isset($_GET['logout'])) {
   unset($_SESSION['admin']);
   session_unset();
   session_destroy();
-  header("Location: ../home_user/index.php");
+  header("Location: ../Login/login.php");
   exit;
 }
