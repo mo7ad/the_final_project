@@ -79,7 +79,13 @@
             <a class="nav-link" href="#">Meal Planner</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../home_user/create_rec.php?id">Create Recipes</a>
+            <?php
+            if (isset($_SESSION["admin"])) {
+              echo "<a class='nav-link' href='../admin/create_rec.php?id={$_SESSION['admin']}'>Create Recipes</a>";
+            } elseif (isset($_SESSION["user"])) {
+              echo " <a class='nav-link' href='../home_user/create_rec.php?id={$_SESSION['user']}'>Create Recipes</a>";
+            }
+            ?>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="../Login/login.php">Login</a>
