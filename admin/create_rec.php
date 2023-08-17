@@ -124,7 +124,7 @@ if (isset($_POST["create"])) {
                     <div class="col-md-4 selectContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                            <select name="type" class="form-control selectpicker">
+                            <select name="meal_type" class="form-control selectpicker">
                                 <option value=" ">Please select your meal time</option>
                                 <option>Breakfest</option>
                                 <option>Lunch</option>
@@ -141,7 +141,7 @@ if (isset($_POST["create"])) {
                     <div class="col-md-4 selectContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                            <select name="meal_type" class="form-control selectpicker">
+                            <select name="type" class="form-control selectpicker">
                                 <option value=" ">Please select your food type</option>
                                 <option>Vegan</option>
                                 <option>Vegeterian</option>
