@@ -14,8 +14,8 @@ if (isset($_POST["create"])) {
 
 
     $recipe_name = $_POST["recipe_name"];
-    $description = $_POST["description"];
     $prep_time = $_POST["prep_time"];
+    $description = $_POST["description"];
     $calories = $_POST["calories"];
     $type = $_POST["type"];
     $verified = $_POST["verified"];
@@ -24,7 +24,7 @@ if (isset($_POST["create"])) {
     $ingredients = $_POST["ingredients"];
 
 
-    $sql = "INSERT INTO recipes (recipe_name,description,prep_time,calories,type,url,verified,meal_type,ingredients,fk_user_id) VALUES ('$recipe_name','$description','$prep_time','$calories','$type','$url','$verified'. '$meal_type','$ingredients',$userID)";
+    $sql = "INSERT INTO recipes (recipe_name,description,prep_time,calories,type,url,verified,meal_type,ingredients,fk_user_id) VALUES ('$recipe_name','$description','$prep_time','$calories','$type','$url','$verified', '$meal_type','$ingredients',$userID)";
 
     if (mysqli_query($connect, $sql)) {
         echo "success";
@@ -94,11 +94,25 @@ if (isset($_POST["create"])) {
                 <!-- Text input-->
 
                 <div class="form-group">
-                    <label class="col-md-4 control-label">Picture</label>
+                    <label class="col-md-4 control-label">Picture URL</label>
                     <div class="col-md-4 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
                             <textarea class="form-control" name="url" placeholder="Picture link"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Verify</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="verified" class="form-control selectpicker">
+                                <option value=" ">Please verify your Email Address</option>
+                                <option>unverified</option>
+                                <option>verified</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -110,7 +124,7 @@ if (isset($_POST["create"])) {
                     <div class="col-md-4 selectContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                            <select name="meal_type" class="form-control selectpicker">
+                            <select name="type" class="form-control selectpicker">
                                 <option value=" ">Please select your meal time</option>
                                 <option>Breakfest</option>
                                 <option>Lunch</option>
@@ -127,7 +141,7 @@ if (isset($_POST["create"])) {
                     <div class="col-md-4 selectContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                            <select name="type" class="form-control selectpicker">
+                            <select name="meal_type" class="form-control selectpicker">
                                 <option value=" ">Please select your food type</option>
                                 <option>Vegan</option>
                                 <option>Vegeterian</option>
