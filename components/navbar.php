@@ -70,13 +70,13 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="../home_user/home.php">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Recipes</a>
+            <a class="nav-link" href="../home_user/my_recipes.php">My recipes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Meal Planner</a>
+            <a class="nav-link" href="../home_user/meal_planner">Meal Planner</a>
           </li>
           <li class="nav-item">
             <?php
