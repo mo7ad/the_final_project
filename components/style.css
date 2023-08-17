@@ -1,4 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Your+Selected+Font+Family&display=swap');
+
+
 ---------------------------------
+/* IMPORT FOR FONT-STYLE ENDS HERE */
+
 
 /* footer start */
 --------------------------------------------------- ul {
@@ -247,4 +252,9 @@
   background-image: url('https://cdn.pixabay.com/photo/2018/08/14/13/23/ocean-3605547_1280.jpg');
   background-size: cover;
   /* background-position: center; */
+}
+
+h1 {
+  font-family: 'Courgette', cursive;
+  font-family: 'Dancing Script', cursive;
 }
