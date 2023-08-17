@@ -261,3 +261,11 @@
   font-family: 'Dancing Script', cursive;
   text-shadow: 3px 3px 3px yellow;
 }
+
+.card_recipe {
+  box-shadow: 0 0 5px 5px red;
+}
+
+.card_users {
+  box-shadow: 0 0 5px 5px red;
+}

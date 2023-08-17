@@ -22,11 +22,11 @@ $layout = "";
 if (mysqli_num_rows($resultPersons) > 0) {
     while ($userPerson = mysqli_fetch_assoc($resultPersons)) {
         $layout .= "<div>
-            <div class='card mb-5' style='width: 18rem;'>
+            <div class='card mb-5 card_users' style='width: 18rem;'>
                 <img src='{$userPerson["picture"]}' class='card-img-top' alt='...' style='height: 300px; object-fit: cover;'>
                 <div class='card-body'>
-                    <h5 class='card-title'>{$userPerson["fname"]} {$userPerson["lname"]}</h5>
-                    <p class='card-text'>{$userPerson["email"]}</p>
+                    <h5 class='card-title'>User: {$userPerson["fname"]} {$userPerson["lname"]}</h5>
+                    <p class='card-text fs-5'>Email: {$userPerson["email"]}</p>
                     <a href='update_user.php?id={$userPerson["user_id"]}' class='btn btn-warning'>Update</a>
                     <a href='delete_user.php?id={$userPerson["user_id"]}' class='btn btn-danger'>Delete</a>
                 </div>
@@ -46,13 +46,13 @@ $cards = "";
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
         $cards .= "<div>
-               <div class='card my-3'>
+               <div class='card card_recipe my-3 '>
                    <img src='{$row["url"]}' class='card-img-top' alt='...' style='height: 340px; object-fit: cover;'>
                    <div class='card-body'>
-                   <h5 class='card-title'>{$row["recipe_name"]}</h5>
-                   <p class='card-text'> {$row["prep_time"]}</p>
-                   <p class='card-text'> {$row["type"]}</p>
-                   <p class='card-text'> {$row["meal_type"]}</p>
+                   <h5 class='card-title'>Recipe: {$row["recipe_name"]}</h5>
+                   <p class='card-text fs-5'>Time to prepare: {$row["prep_time"]}</p>
+                   <p class='card-text fs-5'>Type: {$row["type"]}</p>
+                   <p class='card-text fs-5'>Meal time: {$row["meal_type"]}</p>
                    
                    <button type='button' class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#exampleModal{$row['recipes_id']}'>Delete
                 </button>
