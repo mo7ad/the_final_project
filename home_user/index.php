@@ -95,7 +95,7 @@ require_once "../db_connect.php";
 
     <!-- arro====== -->
     <div class="arrow">
-        <a href="#footer"><svg id="arrow" xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+        <a href="#counter"><svg id="arrow" xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                 <path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
             </svg></a>
     </div>
@@ -175,7 +175,7 @@ require_once "../db_connect.php";
     <!--start counter-->
     <div class="counter p-5 pb-5 text-center" id="counter-section">
         <div class="row container m-auto">
-            <div class="col ">
+            <div id="counter" class="col ">
                 <span class=" fs-1 fw-bold mb-3 num" data-goal="260">1500</span>
                 <h3 style="color: #335b19;" class="fs-1  mb-3">plans</h3>
             </div>
