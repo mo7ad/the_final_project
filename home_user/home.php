@@ -62,9 +62,10 @@ if (mysqli_num_rows($result) > 0) {
 
     <div class="px-4 py-5 mb-5 text-center bordered shadow" style="background-image: url(https://images.pexels.com/photos/5202219/pexels-photo-5202219.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
             background-size: cover;">
-        <h1 class="display-5 fw-bold mt-4">MealPlanner menu</h1>
-        <div class="col-lg-6 mx-auto">
-            <p class="lead mb-4">Choose your favourite dishes and organize your day!</p>
+       <div class="transparent-bg"  style="background-color: rgba(255, 255, 255, 0.1);padding: 10px; display: inline-block; border-radius: 100px; ">
+         <h1 class="display-5 fw-bold mt-4 ">MealPlanner menu</h1>
+         <div class="col-lg-6 mx-auto">
+             </div>     <p class="lead mb-4">Choose your favourite dishes and organize your day!</p>
             <div class="d-grid gap-2 d-flex justify-content-center">
                 <form method="POST" action="filter.php">
                     <select name="category" class="ps-4 pe-4 p-3 rounded shadow" style="background-color: #E6E7EB">
@@ -84,9 +85,17 @@ if (mysqli_num_rows($result) > 0) {
     </div>
 
 
+    <!-- arro====== -->
+    <div class="arrow">
+        <a href="#cards"><svg id="arrow" xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                <path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
+            </svg></a>
+    </div>
+    <!-- arro====== -->
+
 
     <div class="container">
-        <div class="row row-cols-lg-3 ">
+        <div id="cards" class="row row-cols-lg-3 ">
             <?php echo $cards; ?>
         </div>
     </div>

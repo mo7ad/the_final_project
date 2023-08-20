@@ -1,3 +1,9 @@
+/* color what we used 
+green #335b19
+black #151414
+grau #373636
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Your+Selected+Font+Family&display=swap');
 
 
@@ -57,7 +63,6 @@
   background-size: cover;
   background-position: 100% 100%;
 }
-
 .footer-logo {
   margin-bottom: 30px;
 }
@@ -269,3 +274,110 @@
 .card_users {
   box-shadow: 0 0 5px 5px red;
 }
+
+
+/* arrow */
+.arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  animation: moveUpDown 2s ease-in-out infinite;
+}
+
+@keyframes moveUpDown {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(20px);
+  }
+}
+/* arrow */
+
+/*start Services*/
+.Services .h-design {
+  color: #335b19;
+}
+
+.Services .h-web {
+  color: #335b19;
+}
+
+.Services .h-seo {
+  color: #335b19;
+}
+
+/*end Services*/
+
+/*start counter*/
+
+  .counter {
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.counter .breaks::before {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 100%;
+  background-color: rgb(62, 60, 60);
+  top: 0;
+  left: 0;
+}
+
+.counter .breaks::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 100%;
+  background-color: rgb(62, 60, 60);
+  top: 0;
+  right: 0;
+}
+
+/*end counter*/
+
+/* section start */.section {
+            text-align: center;
+            padding: 50px;
+        }
+        .icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+        }
+        .icons img {
+            margin: 0 20px;
+        }
+        .icons p {
+            margin: 10px 0;
+        }
+        span.circle {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: #335b19;
+            color: white;
+            text-align: center;
+            line-height: 24px;
+
+}
+/* section end */
