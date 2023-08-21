@@ -65,12 +65,12 @@ mysqli_close($connect);
     <div class="px-4 py-5 mb-5 text-center bordered shadow" style="height:500px; background-image: url(https://images.pexels.com/photos/5202219/pexels-photo-5202219.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
             background-size: cover;">
         <div class="transparent-bg" style="background-color: rgba(255, 255, 255, 0.1);padding: 10px; display: inline-block; border-radius: 100px; ">
-            <h1 style="padding-top: 40px;" class="display-5 fw-bold mt-4 ">MealPlanner menu</h1>
+            <h1 style="padding-top: 40px; text-shadow: 2px 2px 2px orange;" class="display-5 fw-bold mt-4">MealPlanner menu</h1>
             <div class="col-lg-6 mx-auto">
             </div>
             <p class="lead mb-4 fs-3 text-warning" style="text-shadow: 2px 2px 2px black;"><strong>Choose your favourite <br>dishes and organize your day!</strong></p>
             <form class="my-4">
-                <a href='create_user.php' class='btn btn-outline-warning col-3 fs-3' style='box-shadow: 2px 2px 2px black;'>Create</a>
+                <a href='create_user.php' class='btn btn-outline-warning col-3 fs-3' style='box-shadow: 2px 2px 2px black;'>Create user</a>
             </form>
         </div>
     </div>
@@ -85,7 +85,6 @@ mysqli_close($connect);
 
     <div class="footer">
         <?php require_once '../components/footer.php' ?>
-
     </div>
 
 </body>
