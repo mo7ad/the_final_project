@@ -44,9 +44,9 @@ if (mysqli_num_rows($result) > 0) {
             </div>
             </div>
             <div class='d-flex flex-column align-items-center justify-content-center'>
-            <span>" . "<a href='details.php?id=" . $row['recipes_id'] . "'><button class='btn btn-success cardbtn mt-4 mb-1' type='button'><span class='text-nowrap'>More Info</span></button></a></span>
-            <a href='../admin/update_rec.php?id=" . $row['recipes_id'] . "'><button class='btn btn-warning cardbtn mb-1' type='button'><span class='text-nowrap'>Update</span></button></a>
-            <a href='delete_rec.php?id=" . $row['recipes_id'] . "'><button class='btn btn-danger cardbtn' type='button'><span class='text-nowrap'>Delete</span></button></a>
+            <span>" . "<a href='details.php?id=" . $row['recipes_id'] . "'><button class='btn btn-outline-success cardbtn mt-4 mb-1' type='button'><span class='text-nowrap'>More Info</span></button></a></span>
+            <a href='../admin/update_rec.php?id=" . $row['recipes_id'] . "'><button class='btn btn-outline-warning cardbtn mb-1' type='button'><span class='text-nowrap'>Update</span></button></a>
+            <a href='delete_rec.php?id=" . $row['recipes_id'] . "'><button class='btn btn-outline-danger cardbtn' type='button'><span class='text-nowrap'>Delete</span></button></a>
             </div>
             </div>
             </div>

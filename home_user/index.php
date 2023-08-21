@@ -68,12 +68,13 @@ require_once "../db_connect.php";
 <body>
     <?php require_once '../components/index.nav.php' ?>
 
-    <div class="px-4 py-5 mb-5  text-center bordered shadow" style="background-image: url('https://images.pexels.com/photos/5202219/pexels-photo-5202219.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');   object-fit: cover; background-repeat:no-repeat; background-size: cover;">
+    <div class="px-4 py-5 mb-5  text-center bordered shadow" style="background-image: url('https://images.pexels.com/photos/5202219/pexels-photo-5202219.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');   
+    height: 350px; object-fit: cover; background-repeat:no-repeat; background-size: cover;">
         <div class="transparent-bg" style="background-color: rgba(255, 255, 255, 0.1);padding: 10px; display: inline-block; border-radius: 100px; ">
-            <h1 class="display-5 fw-bold mt-4 ">MealPlanner menu</h1>
+            <h1 style="padding-top: 40px;" class="display-5 fw-bold mt-4 ">MealPlanner menu</h1>
             <div class="col-lg-6 mx-auto">
             </div>
-            <p class="lead mb-4  ">Choose your favourite dishes and organize your day!</p>
+            <!-- <p class="lead mb-4  ">Choose your favourite dishes and organize your day!</p>
             <div class="d-grid gap-2 d-flex justify-content-center">
 
                 <form method="POST" action="filter.php">
@@ -89,7 +90,7 @@ require_once "../db_connect.php";
                     <br>
                     <button class="btn btn-success btn-md mt-2" name="filter">Look for it!</button>
                 </form>
-            </div>
+            </div> -->
         </div>
     </div>
 
