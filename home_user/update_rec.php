@@ -1,10 +1,8 @@
 <?php
 require_once "../db_connect.php";
 
-
-$id = $_GET["recipes_id"];
-
-$sql = "SELECT * FROM recipes WHERE recipes_id = $id";
+$id = $_GET["id"];
+$sql = "SELECT * FROM recipes WHERE recipes_id = $id ";
 $result = mysqli_query($connect, $sql);
 $row = mysqli_fetch_assoc($result);
 
@@ -14,11 +12,11 @@ if (isset($_POST["update"])) {
     $description = $_POST["description"];
     $calories = $_POST["calories"];
     $type = $_POST["type"];
-    $verified = $_POST["verified"];
     $url = $_POST["url"];
     $meal_type = $_POST["meal_type"];
     $ingredients = $_POST["ingredients"];
 
+    $sql=" UPDATE `recipes` SET `recipe_name`='$recipe_name',`prep_time`='$prep_time',`description`='$description',`calories`='$calories',`type`='$type',`url`='$url',`meal_type`='$meal_type',`ingredients`='$ingredients' WHERE recipes_id=$id";
 
     if (mysqli_query($connect, $sql)) {
         echo "<span class='text_1'>Success</span>";
@@ -84,11 +82,6 @@ if (isset($_POST["update"])) {
                     </div>
 
                     <div class="mb-3">
-                        <label for="verified" class="form-label">Verify</label>
-                        <input type="text" class="form-control" id="verified" name="verified" value="<?= $row["verified"] ?>">
-                    </div>
-
-                    <div class="mb-3">
                         <label for="meal_type" class="form-label">Meal time</label>
                         <select class="form-control" id="meal_type" name="meal_type" value="<?= $row["meal_type"] ?>">
                             <option value="breakfast">Breakfast</option>
@@ -117,7 +110,7 @@ if (isset($_POST["update"])) {
                     </div>
 
 
-                    <button type="submit" name="update" class="btn btn-success btn-lg">Update</button>
+                    <button type="update" name="update" class="btn btn-success btn-lg">Update</button>
                     <a href='home.php' class='btn btn-primary btn-lg' style='width: auto;'>Home</a>
                 </form>
             </div>
