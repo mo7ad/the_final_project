@@ -74,8 +74,8 @@ if (isset($_POST["sign-up"])) {
 </head>
 
 <body>
-    <div class="container">
-        <h1 class="text-center">Sign up new user</h1>
+    <div class="container col-6">
+        <h1 class="text-center">Create a new user</h1>
         <form method="post">
             <div class="mb-3">
                 <label for="fname" class="form-label">First name</label>
