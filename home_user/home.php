@@ -5,13 +5,11 @@ require_once "../db_connect.php";
 
 if (isset($_SESSION['admin'])) {
     header("Location: ../admin/dashboard_users.php");
-    exit;
 }
 
 // if session is not set this will redirect to login page
 if (!isset($_SESSION['admin']) && !isset($_SESSION['user'])) {
     header("Location: index.php");
-    exit;
 }
 
 
@@ -43,7 +41,7 @@ if (mysqli_num_rows($result) > 0) {
                 </ul>
                 <div class='d-flex justify-content-center'>
                     <a href='details.php?id=" . $row['recipes_id'] . "' class='btn btn-outline-success btn-sm mr-2 mx-2' role='button'>More Info</a>
-                    <a href='select_date.php?id=" . $row['recipes_id'] ."' class='btn btn-outline-primary btn-sm' role='button'>Add to Plan</a>
+                    <a href='select_date.php?id=" . $row['recipes_id'] . "' class='btn btn-outline-primary btn-sm' role='button'>Add to Plan</a>
                 </div>
             </div>
         </div>
@@ -74,10 +72,11 @@ if (mysqli_num_rows($result) > 0) {
 
     <div class="px-4 py-5 mb-5 text-center bordered shadow" style="background-image: url(https://images.pexels.com/photos/5202219/pexels-photo-5202219.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
             background-size: cover;">
-       <div class="transparent-bg"  style="background-color: rgba(255, 255, 255, 0.1);padding: 10px; display: inline-block; border-radius: 100px; ">
-         <h1 style="padding-top: 40px;" class="display-5 fw-bold mt-4 ">MealPlanner menu</h1>
-         <div class="col-lg-6 mx-auto">
-             </div>     <p class="lead mb-4">Choose your favourite dishes and organize your day!</p>
+        <div class="transparent-bg" style="background-color: rgba(255, 255, 255, 0.1);padding: 10px; display: inline-block; border-radius: 100px; ">
+            <h1 style="padding-top: 40px;" class="display-5 fw-bold mt-4 ">MealPlanner menu</h1>
+            <div class="col-lg-6 mx-auto">
+            </div>
+            <p class="lead mb-4">Choose your favourite dishes and organize your day!</p>
             <div class="d-grid gap-2 d-flex justify-content-center">
                 <form method="POST" action="filter.php">
                     <select name="category" class="ps-4 pe-4 p-3 rounded shadow" style="background-color: #E6E7EB">

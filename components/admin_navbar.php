@@ -80,7 +80,7 @@
                         <a class="nav-link" href="../admin/dashboard_users.php">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../Login/logout.php">Logout</a>
+                        <a class="nav-link" href="../Login/logout.php?logout">Logout</a>
                     </li>
                 </ul>
             </div>
