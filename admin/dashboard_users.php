@@ -59,7 +59,7 @@ mysqli_close($connect);
 </head>
 
 <body>
-    <?php require_once '../components/navbar.php' ?>
+    <?php require_once '../components/admin_navbar.php' ?>
 
     <div class="px-4 py-5 mb-5 text-center bordered shadow" style="height:500px; background-image: url(https://images.pexels.com/photos/5202219/pexels-photo-5202219.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
             background-size: cover;">
