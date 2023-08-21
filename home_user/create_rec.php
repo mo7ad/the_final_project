@@ -110,7 +110,7 @@ $rowUs = mysqli_fetch_assoc($resultUs);
     <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
 <select name="meal_type" class="form-control selectpicker" >
   <option value=" " >Please select your meal time</option>
-  <option>Breakfest</option>
+  <option>Breakfast</option>
   <option>Lunch</option>
   <option>Dinner</option>
 </select>
