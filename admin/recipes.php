@@ -57,7 +57,7 @@ if (mysqli_num_rows($result) > 0) {
         </div>
       <div class='modal-footer'>
         <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>NO</button>
-        <a href='delete.php?id={$row['recipes_id']}' class='btn btn-danger'>YES</a>
+        <a href='delete_rec.php?id={$row['recipes_id']}' class='btn btn-danger'>YES</a>
         </div>
         </div>
         </div>
