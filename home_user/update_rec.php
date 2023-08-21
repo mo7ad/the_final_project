@@ -75,7 +75,7 @@ if (isset($_POST["update"])) {
 
                     <div class="mb-3">
                         <label for="calories" class="form-label">Calories</label>
-                        <input type="text" class="form-control" id="calories" name="calories" value="<?= $row["alories"] ?>">
+                        <input type="text" class="form-control" id="calories" name="calories" value="<?= $row["calories"] ?>">
                     </div>
 
                     <div class="mb-3">
