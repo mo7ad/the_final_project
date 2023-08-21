@@ -36,7 +36,7 @@ if (mysqli_num_rows($result) > 0) {
                    
                    <button type='button' class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#exampleModal{$row['recipes_id']}'>Delete
                 </button>
-                   <a href='../home_user/update.php?id={$row['recipes_id']}' class='btn btn-success'>Update</a>
+                   <a href='../admin/update_rec.php?id={$row['recipes_id']}' class='btn btn-success'>Update</a>
                    <a href='../home_user/details.php?id={$row['recipes_id']}' class='btn btn-success'>Details</a>
                    </div>
            </div>

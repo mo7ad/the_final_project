@@ -21,65 +21,69 @@ $layout = "";
 
 if (mysqli_num_rows($resultPersons) > 0) {
     while ($userPerson = mysqli_fetch_assoc($resultPersons)) {
-        $layout .= "<div>
-            <div class='card mb-5 card_users' style='width: 18rem;'>
-                <img src='{$userPerson["picture"]}' class='card-img-top' alt='...' style='height: 300px; object-fit: cover;'>
-                <div class='card-body'>
-                    <h5 class='card-title'>User: {$userPerson["fname"]} {$userPerson["lname"]}</h5>
-                    <p class='card-text fs-5'>Email: {$userPerson["email"]}</p>
-                    <a href='update_user.php?id={$userPerson["user_id"]}' class='btn btn-warning'>Update</a>
-                    <a href='delete_user.php?id={$userPerson["user_id"]}' class='btn btn-danger'>Delete</a>
-                </div>
+        $layout .=
+            "<div class='col-md-4 mb-4'>
+        <div class='card h-100 shadow'>
+            <img src='{$userPerson["picture"]}' class='card-img-top' style='object-fit: cover; height: 200px;' alt=''>
+            <div class='card-body'>
+                <h4 class='card-title text-center'><i>User: {$userPerson["fname"]} {$userPerson["lname"]}</i></h4>
+                <ul class='list-unstyled mb-3'>
+                    <li class='text-center'><strong>Email:</strong>{$userPerson["email"]}</li>
+                </ul>
+                <div class='d-flex justify-content-center'>
+                <a href='update_user.php?id={$userPerson["user_id"]}' class='btn btn-outline-warning mx-3'>Update</a>
+                <a href='delete_user.php?id={$userPerson["user_id"]}' class='btn btn-outline-danger'>Delete</a> </div>
             </div>
-        </div>";
+        </div>
+    </div>";
     }
 } else {
     $layout .= "No results found!";
 }
 
-
-
-
 mysqli_close($connect);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php require_once '../components/bootstrap.php' ?>
     <link rel="stylesheet" href="../components/style.css">
-    <title>Welcome <?= $rowPersons["fname"] ?></title>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap" rel="stylesheet">
+    <title>Welcome <?php echo $rowPersons["fname"]; ?></title>
+
+    <?php require_once '../components/bootstrap.php' ?>
+
 </head>
 
-<body class="background_user">
-    <?php require_once '../components/admin_navbar.php' ?>
+<body>
+    <?php require_once '../components/navbar.php' ?>
 
+    <div class="px-4 py-5 mb-5 text-center bordered shadow" style="height:500px; background-image: url(https://images.pexels.com/photos/5202219/pexels-photo-5202219.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+            background-size: cover;">
+        <div class="transparent-bg" style="background-color: rgba(255, 255, 255, 0.1);padding: 10px; display: inline-block; border-radius: 100px; ">
+            <h1 style="padding-top: 40px;" class="display-5 fw-bold mt-4 ">MealPlanner menu</h1>
+            <div class="col-lg-6 mx-auto">
+            </div>
+            <p class="lead mb-4">Choose your favourite dishes and organize your day!</p>
 
-    <h1 class="text_1 text-center my-4">Welcome <?= $rowPersons["fname"] . " " . $rowPersons["lname"] ?></h1>
-
-
-
+        </div>
+    </div>
 
     <div class="container">
-        <p class="text-white fs-4">Click down to create a new user:</p>
-        <form class="my-4">
-            <a href='create_user.php' class='btn btn-warning '>Create</a>
-        </form>
-        <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-1 row-cols-xs-1">
-            <?= $layout ?>
+        <div class="row row-cols-lg-3 ">
+            <?php echo $layout; ?>
         </div>
     </div>
 
 
 
-
     <div class="footer">
         <?php require_once '../components/footer.php' ?>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
+    </div>
 
 </body>
 

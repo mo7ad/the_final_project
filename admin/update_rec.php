@@ -2,7 +2,7 @@
 require_once "../db_connect.php";
 
 
-$id = $_GET["recipes_id"];
+$id = $_GET["id"];
 $sql = "SELECT * FROM recipes WHERE recipes_id = $id";
 $result = mysqli_query($connect, $sql);
 $row = mysqli_fetch_assoc($result);
