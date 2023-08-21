@@ -63,6 +63,7 @@ grau #373636
   background-size: cover;
   background-position: 100% 100%;
 }
+
 .footer-logo {
   margin-bottom: 30px;
 }
@@ -261,7 +262,7 @@ grau #373636
 
 .text_1 {
   color: white;
-  font-size: 60px;
+  font-size: 45px;
   font-family: 'Courgette', cursive;
   font-family: 'Dancing Script', cursive;
   text-shadow: 2px 2px 2px black;
@@ -297,6 +298,7 @@ grau #373636
     transform: translateY(20px);
   }
 }
+
 /* arrow */
 
 /*start Services*/
@@ -316,19 +318,20 @@ grau #373636
 
 /*start counter*/
 
-  .counter {
-    animation: fadeInUp 1.5s ease-in-out;
+.counter {
+  animation: fadeInUp 1.5s ease-in-out;
 }
 
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .counter .breaks::before {
@@ -353,31 +356,37 @@ grau #373636
 
 /*end counter*/
 
-/* section start */.section {
-            text-align: center;
-            padding: 50px;
-        }
-        .icons {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 30px;
-        }
-        .icons img {
-            margin: 0 20px;
-        }
-        .icons p {
-            margin: 10px 0;
-        }
-        span.circle {
-            display: inline-block;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background-color: #335b19;
-            color: white;
-            text-align: center;
-            line-height: 24px;
+/* section start */
+.section {
+  text-align: center;
+  padding: 50px;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.icons img {
+  margin: 0 20px;
+}
+
+.icons p {
+  margin: 10px 0;
+}
+
+span.circle {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #335b19;
+  color: white;
+  text-align: center;
+  line-height: 24px;
 
 }
+
 /* section end */
