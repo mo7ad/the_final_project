@@ -76,7 +76,7 @@
             <a class="nav-link" href="../home_user/my_recipes.php">My recipes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../home_user/meal_planner">Meal Planner</a>
+            <a class="nav-link" href="../home_user/meal_planner.php">Meal Planner</a>
           </li>
           <li class="nav-item">
             <?php
