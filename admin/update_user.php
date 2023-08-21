@@ -20,6 +20,7 @@ if (isset($_POST["update"])) {
     $lname = $_POST["lname"];
     $email = $_POST["email"];
     $picture = $_POST["picture"];
+    $role = $_POST["role"];
 
 
     /* function clear($input)
@@ -36,7 +37,7 @@ if (isset($_POST["update"])) {
     $email = clear($_POST["email"]);
     $picture = $_POST["picture"];
  */
-    $sql = "UPDATE `users` SET `fname`='$fname',`lname`='$lname',`email`='$email',`picture`='$picture' WHERE user_id=$id ";
+    $sql = "UPDATE `users` SET `fname`='$fname',`lname`='$lname',`email`='$email',`picture`='$picture',`role`='$role' WHERE user_id=$id ";
     $result = mysqli_query($connect, $sql);
 
     if ($result) {
@@ -81,9 +82,23 @@ if (isset($_POST["update"])) {
                 <input type="text" class="form-control" value="<?= $row["picture"] ?>" id="picture" aria-describedby="picture" name="picture">
             </div>
 
+            <div class="form-group">
+                <label class="col-md-4 control-label">Role</label>
+                <div class="col-md-4 selectContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                        <select name="role" class="form-control selectpicker">
+                            <option value=" ">Please Choise The Role</option>
+                            <option>blocked</option>
+                            <option>user</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
 
-            <button name="update" type="submit" class="btn btn-primary">Update user</button>
-            <a href="dashboard_users.php" class="btn btn-warning">Back to home page</a>
+
+            <button name="update" type="submit" class="btn btn-primary mt-3">Update user</button>
+            <a href="dashboard_users.php" class="btn btn-warning mt-3">Back to home page</a>
         </form>
     </div>
 

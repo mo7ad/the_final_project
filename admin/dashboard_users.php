@@ -28,7 +28,8 @@ if (mysqli_num_rows($resultPersons) > 0) {
             <div class='card-body'>
                 <h4 class='card-title text-center'><i>User: {$userPerson["fname"]} {$userPerson["lname"]}</i></h4>
                 <ul class='list-unstyled mb-3'>
-                    <li class='text-center'><strong>Email:</strong>{$userPerson["email"]}</li>
+                    <li class='text-center'><strong>Email: </strong>{$userPerson["email"]}</li>
+                    <li class='text-center'><strong>Role: </strong>{$userPerson["role"]}</li>
                 </ul>
                 <div class='d-flex justify-content-center'>
                 <a href='update_user.php?id={$userPerson["user_id"]}' class='btn btn-outline-warning mx-3'>Update</a>
