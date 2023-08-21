@@ -24,7 +24,7 @@ if (mysqli_num_rows($resultPersons) > 0) {
         $layout .=
             "<div class='col-md-4 mb-4'>
         <div class='card h-100 shadow'>
-            <img src='{$userPerson["picture"]}' class='card-img-top' style='object-fit: cover; height: 200px;' alt=''>
+            <img src='{$userPerson["picture"]}' class='card-img-top' style='object-fit: cover; height: 240px; width:180px;' alt=''>
             <div class='card-body'>
                 <h4 class='card-title text-center'><i>User: {$userPerson["fname"]} {$userPerson["lname"]}</i></h4>
                 <ul class='list-unstyled mb-3'>

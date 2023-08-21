@@ -21,7 +21,7 @@ if (isset($_POST["update"])) {
 
     if (mysqli_query($connect, $sql)) {
         echo "<span class='text_1'>Success</span>";
-        header("refresh: 3; url = dashboard.php");
+        header("refresh: 3; url = recipes.php");
     } else {
         echo "<span class='text_1'>Error</span>";
     }
