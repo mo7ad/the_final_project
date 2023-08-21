@@ -63,6 +63,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
+      <img style="width: 60px;" src="https://dq7axd795mydj.cloudfront.net/bots/bucks/assets/avatar-bg-transparent.png" alt="">
       <a class="navbar-brand" href="#">Meal Planner</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
