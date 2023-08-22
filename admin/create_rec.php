@@ -9,6 +9,7 @@ $resultUs = mysqli_query($connect, $sqlUs);
 $rowUs = mysqli_fetch_assoc($resultUs);
 
 
+$recipe_name = $prep_time = $description = $calories = $type = $verified = $url = $meal_type = $ingredients = "";
 
 if (isset($_POST["create"])) {
 
@@ -28,7 +29,7 @@ if (isset($_POST["create"])) {
 
     if (mysqli_query($connect, $sql)) {
         echo "success";
-        header("refresh: 3; url = dashboard.php");
+        header("refresh: 3; url = recipes.php");
     } else {
         echo "failed";
     }
@@ -43,148 +44,100 @@ if (isset($_POST["create"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Recipe</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="../components/style.css">
+    <style>
+        body {
+            background-image: url(https://images.pexels.com/photos/5202219/pexels-photo-5202219.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        /*         .container_center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 600px;
+        } */
+    </style>
 </head>
-</head>
+
 
 <body>
-    <div class="container">
+    <div class="container col-4 bg-light rounded" style="min-height: 100vh;">
 
-        <form class="well form-horizontal" action=" " method="post" id="contact_form">
-            <fieldset>
+        <form method="post">
+            <div class="user-box">
+                <label for="recipe_name" class="form-label">Recipe</label>
+                <input type="text" class="form-control" id="recipe_name" name="recipe_name" placeholder="" value="<?= $recipe_name ?>">
+            </div>
 
+            <div class="user-box">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" name="description" placeholder="" value="<?= $description ?>"></textarea>
+            </div>
 
-                <legend>Create your own recipe!</legend>
+            <div class="user-box">
+                <label for="prep_time" class="form-label">Preperation Time</label>
+                <input type="text" class="form-control" id="prep_time" name="prep_time" placeholder="" value="<?= $prep_time ?>">
 
+            </div>
 
+            <div class="user-box">
+                <label for="calories" class="form-label">Calories</label>
+                <input type="calories" class="form-control" id="calories" name="calories" placeholder="" value="<?= $calories ?>">
 
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Recipe</label>
-                    <div class="col-md-4 inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input name="recipe_name" placeholder="Recipe" class="form-control" type="text">
-                        </div>
-                    </div>
-                </div>
+            </div>
 
+            <div class="user-box">
+                <label for="url" class="form-label">Image URL</label>
+                <input type="text" class="form-control" id="url" name="url" placeholder="" value="<?= $url ?>">
+            </div>
 
+            <div class="user-box">
+                <label for="verified" class="form-label">Verified</label>
+                <select type="text" name="verified" id="verified" class="form-control selectpicker">
+                    <option value=" ">Please verify the recipe</option>
+                    <option>unverified</option>
+                    <option>verified</option>
+                </select>
+            </div>
 
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Preparation Time</label>
-                    <div class="col-md-4 inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input name="prep_time" placeholder="XX hours/minutes" class="form-control" type="text">
-                        </div>
-                    </div>
-                </div>
+            <div class="user-box">
+                <label for="meal_type" class="form-label">Meal Time</label>
+                <select type="text" name="meal_type" id="meal_type" class="form-control selectpicker">
+                    <option value=" ">Choose:</option>
+                    <option>Breakfest</option>
+                    <option>Lunch</option>
+                    <option>Dinner</option>
+                </select>
+            </div>
 
+            <div class="user-box">
+                <label for="type" class="form-label">Meal Type</label>
+                <select type="text" name="type" id="type" class="form-control selectpicker">
+                    <option value=" ">Please select your food type</option>
+                    <option>Vegan</option>
+                    <option>Vegeterian</option>
+                    <option>Normal</option>
+                </select>
+            </div>
 
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Calories</label>
-                    <div class="col-md-4 inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                            <input name="calories" placeholder="XXXX calories" class="form-control" type="text">
-                        </div>
-                    </div>
-                </div>
+            <div class="user-box">
+                <label for="ingredients" class="form-label">Ingredients</label>
+                <textarea class="form-control" id="ingredients" name="ingredients" placeholder="" value="<?= $ingredients ?>"></textarea>
+            </div>
 
+            <div class="my-4">
+                <button type="submit" class="btn btn-warning" name="create">Send <span class="glyphicon glyphicon-send"></span></button>
+            </div>
 
-                <!-- Text input-->
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Picture URL</label>
-                    <div class="col-md-4 inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                            <textarea class="form-control" name="url" placeholder="Picture link"></textarea>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Verify</label>
-                    <div class="col-md-4 selectContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                            <select name="verified" class="form-control selectpicker">
-                                <option value=" ">Please verify your Email Address</option>
-                                <option>unverified</option>
-                                <option>verified</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Meal time</label>
-                    <div class="col-md-4 selectContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                            <select name="meal_type" class="form-control selectpicker">
-                                <option value=" ">Please select your meal time</option>
-                                <option>Breakfest</option>
-                                <option>Lunch</option>
-                                <option>Dinner</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Meal type</label>
-                    <div class="col-md-4 selectContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                            <select name="type" class="form-control selectpicker">
-                                <option value=" ">Please select your food type</option>
-                                <option>Vegan</option>
-                                <option>Vegeterian</option>
-                                <option>Normal</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Ingredients</label>
-                    <div class="col-md-4 inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                            <textarea class="form-control" name="ingredients" placeholder="Ingredients"></textarea>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Preparation description</label>
-                    <div class="col-md-4 inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                            <textarea class="form-control" name="description" placeholder="Project Description"></textarea>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label"></label>
-                    <div class="col-md-4">
-                        <button type="submit" class="btn btn-warning" name="create">Send <span class="glyphicon glyphicon-send"></span></button>
-                    </div>
-                </div>
-
-            </fieldset>
         </form>
+
+
     </div>
 
 
