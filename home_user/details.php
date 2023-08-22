@@ -32,19 +32,23 @@
 <?php require_once '../components/navbar.php' ?>
   <div class="wrapper">
     <div class="product-img">
-      <img src="<?php echo $row["url"]; ?>" height="420" width="327">
+      <img src="<?php echo $row["url"]; ?>" height="500" width="327">
     </div>
     <div class="product-info">
       <div class="product-text">
         <h1><?php echo $row["recipe_name"]; ?></h1>
         <p><?php echo $row["ingredients"]; ?></p>
         <p><?php echo $row["description"]; ?></p>
-      </div>
-      <div class="product-price-btn">
-        <p><span><p><?php echo $row["calories"]; ?><br><?php echo $row["prep_time"]; ?></p></span></p>
+        <h1>Diet: <?php echo $row["type"]; ?></h1>
         
+        <h1>Type: <?php echo $row["meal_type"]; ?></h1>
+        
+        <h1>Minutes: <?php echo $row["prep_time"]; ?></h1>
+        
+        <h1>Calories: <?php echo $row["calories"]; ?></h1>
         
       </div>
+      
       
     </div>
   </div>

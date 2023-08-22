@@ -11,8 +11,8 @@ body {
   }
   
   .wrapper {
-    height: 420px;
-    width: 654px;
+    height: 500px;
+    width: 800px;
     margin: 50px auto;
     border-radius: 7px 7px 7px 7px;
     /* VIA CSS MATIC https://goo.gl/cIbnS */
@@ -23,7 +23,7 @@ body {
   
   .product-img {
     float: left;
-    height: 420px;
+    height: 453px;
     width: 327px;
   }
   
@@ -33,20 +33,20 @@ body {
   
   .product-info {
     float: left;
-    height: 420px;
+    height: 453px;
     width: 327px;
     border-radius: 0 7px 10px 7px;
     background-color: #ffffff;
   }
   
   .product-text {
-    height: 300px;
+    height: 450px;
     width: 327px;
   }
   
   .product-text h1 {
     margin: 0 0 0 38px;
-    padding-top: 52px;
+    padding-top: 20px;
     font-size: 34px;
     color: #474747;
   }
@@ -67,7 +67,8 @@ body {
   }
   
   .product-text p {
-    height: 125px;
+    padding-top: 20px;
+    height: auto;
     margin: 0 0 0 38px;
     font-family: 'Playfair Display', serif;
     color: #8d8d8d;
@@ -77,24 +78,9 @@ body {
     overflow: hidden;
   }
   
-  .product-price-btn {
-    height: 103px;
-    width: 327px;
-    margin-top: 17px;
-    position: relative;
-  }
   
-  .product-price-btn p {
-    display: inline-block;
-    position: absolute;
-    top: -13px;
-    height: 50px;
-    font-family: 'Trocchi', serif;
-    margin: 0 0 0 38px;
-    font-size: 28px;
-    font-weight: lighter;
-    color: #474747;
-  }
+  
+  
   
   span {
     display: inline-block;
