@@ -23,7 +23,7 @@ if (mysqli_num_rows($resultPersons) > 0) {
     while ($userPerson = mysqli_fetch_assoc($resultPersons)) {
         $layout .=
             "<div class='col-md-4 mb-4'>
-        <div class='card h-100 shadow'>
+        <div class='card h-100'>
             <img src='{$userPerson["picture"]}' class='card-img-top' style='object-fit: cover; height: 100%; width:100%;' alt=''>
             <div class='card-body'>
                 <h4 class='card-title text-center'><i>User: {$userPerson["fname"]} {$userPerson["lname"]}</i></h4>
@@ -57,6 +57,75 @@ mysqli_close($connect);
 
     <?php require_once '../components/bootstrap.php' ?>
 
+    <style>
+        /* Add the sliding text animation styles here */
+        .sliding-text-container {
+            position: relative;
+            width: 100%;
+            height: 130px;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0);
+        }
+
+        .sliding-text {
+            position: absolute;
+            top: 10%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            font-size: 2em;
+            animation: slide-up 8s linear infinite;
+        }
+
+        @keyframes slide-up {
+            0% {
+                transform: translateY(100%);
+            }
+
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+
+        .card {
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            transition: transform 1.5s ease;
+        }
+
+        .card:hover {
+            transform: rotateY(360deg);
+            /* Adjust the angle as needed */
+        }
+
+        .shake:hover {
+            animation: shake 0.3s linear infinite;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-5px);
+            }
+
+            50% {
+                transform: translateX(5px);
+            }
+
+            75% {
+                transform: translateX(-5px);
+            }
+
+            100% {
+                transform: translateX(5px);
+            }
+        }
+    </style>
+
 </head>
 
 <body>
@@ -65,13 +134,16 @@ mysqli_close($connect);
     <div class="px-4 py-5 mb-5 text-center bordered shadow" style="height:500px; background-image: url(https://images.pexels.com/photos/5202219/pexels-photo-5202219.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
             background-size: cover;">
         <div class="transparent-bg" style="background-color: rgba(255, 255, 255, 0.1);padding: 10px; display: inline-block; border-radius: 100px; ">
-            <h2 class="text-center text_1 my-3">Welcome <?= $rowPersons["fname"] . " " . $rowPersons["lname"] ?></h2>
-            <h1 style="padding-top: 10px; text-shadow: 2px 2px 2px orange;" class="display-5 fw-bold mt-4">MealPlanner menu</h1>
+            <h1 style="text-shadow: 2px 2px 2px white; letter-spacing: 4px; font-size: 80px;" class="display-5 fw-bold mt-4">MealPlanner menu</h1>
             <div class="col-lg-6 mx-auto">
             </div>
-            <p class="lead mb-4 fs-3 text-warning" style="text-shadow: 2px 2px 2px black;"><strong>Choose your favourite <br>dishes and organize your day!</strong></p>
+            <div class="sliding-text-container">
+                <div class="sliding-text">
+                    <p style="text-shadow: 2px 2px 2px black;"><strong>Choose your favorite<br>dishes and organize your day!</strong></p>
+                </div>
+            </div>
             <form class="my-4">
-                <a href='create_user.php' class='btn btn-outline-warning col-5 fs-3' style='box-shadow: 2px 2px 2px black;'>Create user</a>
+                <a href='create_user.php' class='btn btn-outline-light col-5 fs-2 shake' style='box-shadow: 2px 2px 2px black;'>Create user</a>
             </form>
         </div>
     </div>
@@ -81,8 +153,6 @@ mysqli_close($connect);
             <?php echo $layout; ?>
         </div>
     </div>
-
-
 
     <div class="footer">
         <?php require_once '../components/footer.php' ?>
