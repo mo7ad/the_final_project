@@ -122,6 +122,8 @@ require_once "../db_connect.php";
             </svg></a>
     </div>
     <!-- arro====== -->
+
+
     <div class="container section">
         <h1 class="site-logo title is-1 megatitle" style="font-family:'Cabin Sketch', cursive;color:#007444;font-weight:bold;text-align:center;"> Meal Planning Made Easy </h1>
         <p>A magical new way to plan your meals. Groundbreaking organizing features designed to save time, customize your weekly meal plan based on your diet and eating habits. An innovative meal planning in 3 steps for mind-blowing simplicity. All powered by our ultimate 3000+ recipes database.</p>

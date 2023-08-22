@@ -17,7 +17,7 @@ $sqlPersons = "SELECT * FROM `users`";
 $resultPersons = mysqli_query($connect, $sqlPersons);
 $rowPersons = mysqli_fetch_assoc($resultPersons);
 
-$sql = "SELECT * FROM `recipes`";
+$sql = "SELECT * FROM `recipes` ";
 $result = mysqli_query($connect, $sql);
 
 $layout = "";
@@ -31,15 +31,23 @@ if (mysqli_num_rows($result) > 0) {
                     <div class='card-body'>
                     <h4 class='card-title text-center'><i>{$row["recipe_name"]}</i></h4>
                     <ul class='list-unstyled mb-3'>
-                        <li class='text-center'><strong>Preperation Time: </strong>{$row["prep_time"]}</li>
-                        <li class='text-center'><strong>Type: </strong>{$row["type"]}</li>
-                        <li class='text-center'><strong>Meal Type: </strong>{$row["meal_type"]}</li>
-                    </ul>
+                    <li class='text-center'><strong>Preparation Time: </strong>{$row["prep_time"]}</li>
+                    <li class='text-center'><strong>Type: </strong>{$row["type"]}</li>
+                    <li class='text-center'><strong>Meal Type: </strong>{$row["meal_type"]}</li>
+                </ul>
+                   <div class='text-center'>"; // Open a new div for centering content
+        if ($row["verified"] == 'verified') {
+            $layout .= "<a class='btn btn-outline-secondary my-2' href='a_recipes_ver.php?id=$row[recipes_id]'>unverified</a>";
+        } else {
+            $layout .= "<a class='btn btn-outline-success my-2' href='a_recipes_ver.php?id=$row[recipes_id]'>verified</a>";
+        }
+        $layout .= " 
+                 </div>
                     
                 <div class='d-flex justify-content-center'>
                 <button type='button' class='btn btn-outline-danger' data-bs-toggle='modal' data-bs-target='#exampleModal{$row['recipes_id']}'>Delete
                 </button>
-                <a href='update_rec.php?id={$row["recipes_id"]}' class='btn btn-outline-warning mx-3'>Update</a>
+                <a href='update_rec.php?id={$row["recipes_id"]}' class='btn btn-outline-secondary mx-3'>Update</a>
                 <a href='../home_user/details.php?id={$row["recipes_id"]}' class='btn btn-outline-secondary'>Details</a> </div>
                 
             </div>

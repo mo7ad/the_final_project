@@ -84,6 +84,10 @@
           <li class="nav-item">
             <a class="nav-link" href="../Login/register.php">Sign Up</a>
           </li>
+          <li class="nav-item">
+          <?php require_once '../components/night_mode.php'?>
+          </li>
+
         </ul>
       </div>
     </div>

@@ -24,7 +24,7 @@ if (isset($_SESSION['user'])) {
 
 $sql = "SELECT * FROM recipes
 JOIN users ON recipes.fk_user_id = users.user_id
-WHERE users.user_id = $val";
+WHERE users.user_id = $val and recipes.verified = 'verified'";
 $result = mysqli_query($connect, $sql);
 $tbody = '';
 

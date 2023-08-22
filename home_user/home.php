@@ -20,7 +20,7 @@ $resultPersons = mysqli_query($connect, $sqlPersons);
 $rowPersons = mysqli_fetch_assoc($resultPersons);
 
 
-$sql = "SELECT * FROM `recipes`";
+$sql = "SELECT * FROM `recipes` WHERE verified = 'verified'";
 $result = mysqli_query($connect, $sql);
 
 $cards = "";
