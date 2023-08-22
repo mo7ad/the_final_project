@@ -52,53 +52,55 @@ if (isset($_POST["create"])) {
             background-repeat: no-repeat;
         }
 
-        /*         .container_center {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+        .form-label {
+            font-weight: bold;
+            text-shadow: 1px 1px 1px gray;
         }
 
-        .container {
-            width: 600px;
-        } */
+        .text-center {
+            text-shadow: 2px 2px 2px gray;
+        }
     </style>
 </head>
 
 
-<body>
-    <div class="container col-4 bg-light rounded" style="min-height: 100vh;">
+<body style="height: 1200px;">
+    <div class="d-flex justify-content-center"> <!-- Add this div to center the content -->
+        <h3 class="text-center p-2 mt-5 bg-light w-25 rounded border border-success shadow bg-success-subtle">Create your own recipe</h3>
+    </div>
+
+    <div class="container col-5 bg-light border border-dark shadow rounded mt-3" style=" height: 830px;">
 
         <form method="post">
             <div class="user-box">
-                <label for="recipe_name" class="form-label">Recipe</label>
+                <label for="recipe_name" class="form-label mt-2">Recipe</label>
                 <input type="text" class="form-control" id="recipe_name" name="recipe_name" placeholder="" value="<?= $recipe_name ?>">
             </div>
 
             <div class="user-box">
-                <label for="description" class="form-label">Description</label>
+                <label for="description" class="form-label mt-2">Description</label>
                 <textarea class="form-control" id="description" name="description" placeholder="" value="<?= $description ?>"></textarea>
             </div>
 
             <div class="user-box">
-                <label for="prep_time" class="form-label">Preperation Time</label>
+                <label for="prep_time" class="form-label mt-2">Preperation Time</label>
                 <input type="text" class="form-control" id="prep_time" name="prep_time" placeholder="" value="<?= $prep_time ?>">
 
             </div>
 
             <div class="user-box">
-                <label for="calories" class="form-label">Calories</label>
+                <label for="calories" class="form-label mt-2">Calories</label>
                 <input type="calories" class="form-control" id="calories" name="calories" placeholder="" value="<?= $calories ?>">
 
             </div>
 
             <div class="user-box">
-                <label for="url" class="form-label">Image URL</label>
+                <label for="url" class="form-label mt-2">Image URL</label>
                 <input type="text" class="form-control" id="url" name="url" placeholder="" value="<?= $url ?>">
             </div>
 
             <div class="user-box">
-                <label for="verified" class="form-label">Verified</label>
+                <label for="verified" class="form-label mt-2">Verified</label>
                 <select type="text" name="verified" id="verified" class="form-control selectpicker">
                     <option value=" ">Please verify the recipe</option>
                     <option>unverified</option>
@@ -107,7 +109,7 @@ if (isset($_POST["create"])) {
             </div>
 
             <div class="user-box">
-                <label for="meal_type" class="form-label">Meal Time</label>
+                <label for="meal_type" class="form-label mt-2">Meal Time</label>
                 <select type="text" name="meal_type" id="meal_type" class="form-control selectpicker">
                     <option value=" ">Choose:</option>
                     <option>Breakfest</option>
@@ -117,7 +119,7 @@ if (isset($_POST["create"])) {
             </div>
 
             <div class="user-box">
-                <label for="type" class="form-label">Meal Type</label>
+                <label for="type" class="form-label mt-2">Meal Type</label>
                 <select type="text" name="type" id="type" class="form-control selectpicker">
                     <option value=" ">Please select your food type</option>
                     <option>Vegan</option>
@@ -127,12 +129,12 @@ if (isset($_POST["create"])) {
             </div>
 
             <div class="user-box">
-                <label for="ingredients" class="form-label">Ingredients</label>
+                <label for="ingredients" class="form-label mt-2">Ingredients</label>
                 <textarea class="form-control" id="ingredients" name="ingredients" placeholder="" value="<?= $ingredients ?>"></textarea>
             </div>
 
             <div class="my-4">
-                <button type="submit" class="btn btn-warning" name="create">Send <span class="glyphicon glyphicon-send"></span></button>
+                <button type="submit" class="btn btn-outline-warning btn-lg" name="create">Create<span class="glyphicon glyphicon-send"></span></button>
             </div>
 
         </form>
