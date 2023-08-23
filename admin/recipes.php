@@ -126,23 +126,32 @@ mysqli_close($connect);
         }
 
 
-/* Style for the card when not hovered */
-.card {
-    transition: transform 0.2s, filter 0.2s;
-    filter: brightness(1); /* Reset brightness */
-}
+        /* Style for the card when not hovered */
+        .card {
+            transition: transform 0.2s, filter 0.2s;
+            filter: brightness(1);
+            /* Reset brightness */
+            transition: border-color 0.3s ease;
+            border: 0;
+        }
 
-/* Style for the card when hovered */
-.card:hover {
-    transform: translateY(-5px); /* Lift the card slightly */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-    filter: brightness(1.2); /* Increase brightness on hover */
-}
+        /* Style for the card when hovered */
+        .card:hover {
+            transform: translateY(-5px);
+            /* Lift the card slightly */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Add a subtle shadow */
+            filter: brightness(1.2);
+            /* Increase brightness on hover */
+            border: 5px solid #39ff14;
+        }
 
-/* Style for other cards when a card is hovered */
-.card:hover ~ .card {
-    filter: blur(2px); /* Apply blur to other cards */
-}    </style>
+        /* Style for other cards when a card is hovered */
+        .card:hover~.card {
+            filter: blur(2px);
+            /* Apply blur to other cards */
+        }
+    </style>
 
 </head>
 
