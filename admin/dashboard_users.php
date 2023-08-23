@@ -106,8 +106,6 @@ mysqli_close($connect);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             /* Add a subtle shadow */
             filter: brightness(1.2);
-            /* Increase brightness on hover */
-            border: 5px solid #39ff14;
         }
 
         /* Style for other cards when a card is hovered */
