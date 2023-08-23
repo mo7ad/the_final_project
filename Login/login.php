@@ -58,7 +58,7 @@ if (isset($_POST["login"])) {
 
     <style>
         body {
-            background-image: url(https://images.pexels.com/photos/5202219/pexels-photo-5202219.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+            background-image: url(https://c1.wallpaperflare.com/path/313/28/980/plant-leaf-leafe-green-f305d866b95d05ee5ba1a0a3bcb7d44e.jpg);
             background-size: cover;
             background-repeat: no-repeat;
         }

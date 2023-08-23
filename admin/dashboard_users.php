@@ -32,7 +32,7 @@ if (mysqli_num_rows($resultPersons) > 0) {
                     <li class='text-center'><strong>Role: </strong>{$userPerson["role"]}</li>
                 </ul>
                 <div class='d-flex justify-content-center'>
-                <a href='update_user.php?id={$userPerson["user_id"]}' class='btn btn-outline-warning mx-3'>Update</a>
+                <a href='update_user.php?id={$userPerson["user_id"]}' class='btn btn-outline-success mx-3'>Update</a>
                 <a href='delete_user.php?id={$userPerson["user_id"]}' class='btn btn-outline-danger'>Delete</a> </div>
             </div>
         </div>

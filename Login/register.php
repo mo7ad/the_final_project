@@ -72,191 +72,57 @@ if (isset($_POST["sign-up"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="../components/style.css">
-    <style>
-        body {
-            background-image: url(https://images.pexels.com/photos/5202219/pexels-photo-5202219.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-
-        .form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            max-width: 450px;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 20px;
-            position: relative;
-            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-
-        }
-
-        .title {
-            font-size: 28px;
-            color: royalblue;
-            font-weight: 600;
-            letter-spacing: -1px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            padding-left: 30px;
-        }
-
-        .title::before,
-        .title::after {
-            position: absolute;
-            content: "";
-            height: 16px;
-            width: 16px;
-            border-radius: 50%;
-            left: 0px;
-            background-color: royalblue;
-        }
-
-        .title::before {
-            width: 18px;
-            height: 18px;
-            background-color: royalblue;
-        }
-
-        .title::after {
-            width: 18px;
-            height: 18px;
-            animation: pulse 1s linear infinite;
-        }
-
-        .message,
-        .signin {
-            color: rgba(88, 87, 87, 0.822);
-            font-size: 15px;
-        }
-
-        .signin {
-            text-align: center;
-        }
-
-        .signin a {
-            color: royalblue;
-        }
-
-        .signin a:hover {
-            text-decoration: underline royalblue;
-        }
-
-        .flex {
-            display: flex;
-            width: 100%;
-            gap: 6px;
-        }
-
-        .form label {
-            position: relative;
-        }
-
-        .form label .input {
-            width: 100%;
-            padding: 10px 10px 20px 10px;
-            outline: 0;
-            border: 1px solid rgba(105, 105, 105, 0.397);
-            border-radius: 10px;
-        }
-
-        .form label .input+span {
-            position: absolute;
-            left: 10px;
-            top: 15px;
-            color: grey;
-            font-size: 0.9em;
-            cursor: text;
-            transition: 0.3s ease;
-        }
-
-        .form label .input:placeholder-shown+span {
-            top: 15px;
-            font-size: 0.9em;
-        }
-
-        .form label .input:focus+span,
-        .form label .input:valid+span {
-            top: 30px;
-            font-size: 0.7em;
-            font-weight: 600;
-        }
-
-        .form label .input:valid+span {
-            color: green;
-        }
-
-        .submit {
-            border: none;
-            outline: none;
-            background-color: royalblue;
-            padding: 10px;
-            border-radius: 10px;
-            color: #fff;
-            font-size: 16px;
-            transform: .3s ease;
-        }
-
-        .submit:hover {
-            background-color: rgb(56, 90, 194);
-        }
-
-        @keyframes pulse {
-            from {
-                transform: scale(0.9);
-                opacity: 1;
-            }
-
-            to {
-                transform: scale(1.8);
-                opacity: 0;
-            }
-        }
-
-        .container {
-            margin-top: 220px;
-        }
-    </style>
+    
+    <link rel="stylesheet" href="../components/register.css">
+    
+    <?php require_once '../components/bootstrap.php' ?>
 
 </head>
 
 <body>
-    <div class="container d-flex justify-content-center align-items-center">
-        <form class="form" method="post">
+    <?php require_once '../components/index.nav.php' ?>
+    <div class="container col-3 text-center" style="color: #fff;">
+        <form class="login-box form" method="post">
             <p class="title">Register </p>
-            <p class="message">Signup now and get full access to our webpage. </p>
+            <p class="message fs-5">Sign up now and get full access to our webpage. </p>
             <div class="flex">
-                <label for="fname" class="form-label">
-                    <input placeholder="" type="text" class="form-control" id="fname" name="fname" value="<?= $fname ?>">
-                    <span>Firstname</span>
-                </label>
+                <div class="user-box">
+                    <input placeholder="" type="text" id="fname" name="fname" value="<?= $fname ?>">
+                    <label>Firstname</label>
+                </div>
 
-                <label for="lname" class="form-label">
-                    <input placeholder="" type="text" class="form-control" id="lname" name="lname" value="<?= $lname ?>">
-                    <span>Lastname</span>
-                </label>
+                <div class="user-box">
+                    <input placeholder="" type="text" id="lname" name="lname" value="<?= $lname ?>">
+                    <label>Lastname</label>
+                </div>
             </div>
 
-            <label for="email" class="form-label">
-                <input placeholder="" type="email" class="form-control" id="email" name="email" value="<?= $email ?>">
-                <span>Email</span>
-            </label>
+            <div class="user-box">
+                <input placeholder="" type="email" id="email" name="email" value="<?= $email ?>">
+                <label>Email</label>
+            </div>
 
-            <label for="picture" class="form-label">
-                <input placeholder="" type="text" class="form-control" id="picture" name="picture" placeholder="" value="<?= $picture ?>">
-                <span>Picture url</span>
-            </label>
-            <label for="pass" class="form-label">
-                <input placeholder="" type="password" class="form-control" id="pass" name="pass">
-                <span>Password</span>
-            </label>
-            <button name="sign-up" class="submit">Submit</button>
-            <p class="signin">Already have an acount ? <a href="login.php">Login</a> </p>
+            <div class="user-box">
+                <input placeholder="" type="text" id="picture" name="picture" placeholder="" value="<?= $picture ?>">
+                <label>Picture url</label>
+            </div>
+            <div class="user-box">
+                <input placeholder="" type="password" id="pass" name="pass">
+                <label>Password</label>
+            </div>
+            <center>
+                <a href="#">
+                    <button name="sign-up" class="submit btn btn-link text-decoration-none text-light fs-4">Submit</button>
+                </a>
+                <br>
+                <a href="login.php" class="col-6 text-decoration-none fs-5" style="color:white ;">Already have an account?</a>
+            </center>
+
+            <!-- <a><button name="sign-up" class="submit">Submit</button></a>
+            <p class="signin text-decoration-underline">Already have an account? <a href="login.php">Login</a></p> -->
         </form>
     </div>
+</body>
 
 
 
@@ -266,8 +132,7 @@ if (isset($_POST["sign-up"])) {
 
 
 
-
-    <!-- <div class="container">
+<!-- <div class="container">
         <h1 class="text-center">Sign up page</h1>
         <form method="post">
             <div class="mb-3">
@@ -299,8 +164,7 @@ if (isset($_POST["sign-up"])) {
 
                         <span>you have an account? <a href="login.php">login here</a></span>
         </form>
-    </div> -->
-
+  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 
