@@ -38,8 +38,8 @@ if (mysqli_num_rows($result) > 0) {
                     <div class='card-body'>
                         <ul class='list-unstyled mb-3'>
                             <li class='text-center'><strong>Meal type:</strong> " . $row['meal_type'] . " </li>
-                            <li class='text-center'><strong>Preparation time:</strong> " . $row['prep_time'] . "   </li>
-                            <li class='text-center'><strong>Calories</strong>: " . $row['calories'] . "   </li>
+                            <li class='text-center'><strong>Preparation time:</strong> " . $row['prep_time'] . " min </li>
+                            <li class='text-center'><strong>Calories</strong>: " . $row['calories'] . "  kcal</li>
                             <li class='text-center'><strong>Type:</strong> " . $row['type'] . "   </li>
                         </ul>
                     </div>
