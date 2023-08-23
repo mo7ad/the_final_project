@@ -73,7 +73,7 @@
 
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="../home_user/unvirfied.php">Unvirfied Recipes</a>
+                        <a class="nav-link" href="../home_user/unvirfied.php">Unverified Recipes</a>
                     </li>
 
                     <li class="nav-item">

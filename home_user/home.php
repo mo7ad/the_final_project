@@ -66,80 +66,24 @@ if (mysqli_num_rows($result) > 0) {
     <?php require_once '../components/bootstrap.php' ?>
 
     <style>
-        /* Add the sliding text animation styles here */
-        .sliding-text-container {
-            position: relative;
-            width: 100%;
-            height: 130px;
-            overflow: hidden;
-            background-color: rgba(0, 0, 0, 0);
-        }
+/* Style for the card when not hovered */
+.card {
+    transition: transform 0.2s, filter 0.2s;
+    filter: brightness(1); /* Reset brightness */
+}
 
-        .sliding-text {
-            position: absolute;
-            top: 10%;
-            left: 0;
-            transform: translateY(-50%);
-            width: 100%;
-            text-align: center;
-            color: #fff;
-            font-size: 2em;
-            animation: slide-up 8s linear infinite;
-        }
+/* Style for the card when hovered */
+.card:hover {
+    transform: translateY(-5px); /* Lift the card slightly */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    filter: brightness(1.2); /* Increase brightness on hover */
+}
 
-        @keyframes slide-up {
-            0% {
-                transform: translateY(100%);
-            }
+/* Style for other cards when a card is hovered */
+.card:hover ~ .card {
+    filter: blur(2px); /* Apply blur to other cards */
+}    </style>
 
-            100% {
-                transform: translateY(-100%);
-            }
-        }
-
-        .card {
-            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-            transition: transform 1.5s ease;
-        }
-
-        .card {
-            transition: opacity 0.3s;
-            /* Add smooth transition effect */
-        }
-
-        .card:hover {
-            opacity: 0.5;
-            /* transform: rotateY(360deg); */
-            /* Adjust the angle as needed */
-        }
-
-
-        .shake:hover {
-            animation: shake 0.3s linear infinite;
-        }
-
-        @keyframes shake {
-            0% {
-                transform: translateX(0);
-            }
-
-            25% {
-                transform: translateX(-5px);
-            }
-
-            50% {
-                transform: translateX(5px);
-            }
-
-            75% {
-                transform: translateX(-5px);
-            }
-
-            100% {
-                transform: translateX(5px);
-            }
-        }
-    </style>
 </head>
 
 <body>
