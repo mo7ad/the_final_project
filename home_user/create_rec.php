@@ -27,7 +27,7 @@ $rowUs = mysqli_fetch_assoc($resultUs);
         $sql = "INSERT INTO recipes (recipe_name,description,prep_time,calories,type,url,meal_type,ingredients,fk_user_id) VALUES ('$recipe_name','$description','$prep_time','$calories','$type','$url','$meal_type','$ingredients',$userID)";
 
         if(mysqli_query($connect, $sql)){
-            echo "success";
+            
             header("refresh: 3; url = home.php");
         }else {
             echo "failed";

@@ -19,7 +19,7 @@ if (isset($_POST["update"])) {
     $sql=" UPDATE `recipes` SET `recipe_name`='$recipe_name',`prep_time`='$prep_time',`description`='$description',`calories`='$calories',`type`='$type',`url`='$url',`meal_type`='$meal_type',`ingredients`='$ingredients' WHERE recipes_id=$id";
 
     if (mysqli_query($connect, $sql)) {
-        echo "<span class='text_1'>Success</span>";
+        
         header("refresh: 3; url = home.php");
     } else {
         echo "<span class='text_1'>Error</span>";
@@ -52,77 +52,52 @@ if (isset($_POST["update"])) {
     <?php require_once '../components/navbar.php' ?>
 
 
-
-    <div class="container mt-5">
-        <div class="card shadow-lg">
-            <div class="card-header bg-primary text-white">
-                <h4 class="m-0">Update your recipe</h4>
-            </div>
-            <div class="card-body">
-                <form method="post" enctype="multipart/form-data">
-                    <div class="mb-3">
-                        <label for="recipe_name" class="form-label">Recipe Name</label>
-                        <input type="text" class="form-control" id="recipe_name" name="recipe_name" value="<?= $row["recipe_name"] ?>">
-                    </div>
-
-                    <div class="row mb-3">
-                        <div class="col">
-                            <label for="prep_time" class="form-label">Preparation Time</label>
-                            <input type="text" class="form-control" id="prep_time" name="prep_time" value="<?= $row["prep_time"] ?>">
-                        </div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="calories" class="form-label">Calories</label>
-                        <input type="text" class="form-control" id="calories" name="calories" value="<?= $row["calories"] ?>">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="url" class="form-label">Picture URL</label>
-                        <input type="text" class="form-control" id="url" name="url" value="<?= $row["url"] ?>">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="meal_type" class="form-label">Meal time</label>
-                        <select class="form-control" id="meal_type" name="meal_type" value="<?= $row["meal_type"] ?>">
-                            <option value="breakfast">Breakfast</option>
-                            <option value="lunch">Lunch</option>
-                            <option value="dinner">Dinner</option>
-                        </select>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="type" class="form-label">Meal type</label>
-                        <select class="form-control" id="type" name="type" value="<?= $row["type"] ?>">
-                            <option value="vegan">Vegan</option>
-                            <option value="vegeterian">Vegeterian</option>
-                            <option value="normal">Normal</option>
-                        </select>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="ingredients" class="form-label">Ingredients</label>
-                        <textarea class="form-control" id="ingredients" name="ingredients" rows="4" value="<?= $row["ingredients"] ?>"></textarea>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="description" class="form-label">Preparation description</label>
-                        <textarea class="form-control" id="description" name="description" rows="6" value="<?= $row["description"] ?>"></textarea>
-                    </div>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="create.css">
+  </head>
+</head>
+<body>
+<?php require_once '../components/navbar.php' ?>
 
 
-                    <button type="update" name="update" class="btn btn-success btn-lg">Update</button>
-                    <a href='home.php' class='btn btn-primary btn-lg' style='width: auto;'>Home</a>
-                </form>
-            </div>
-        </div>
+<div class="formContainer">
+
+
+<div class="form-box">
+<form class="form" method="post">
+    <span class="title">Update your recipe!</span>
+    <span class="subtitle">Update your existing recipes</span>
+    <div class="form-container">
+        <input name="recipe_name" type="text" class="input" placeholder="Recipe name" value="<?= $row["recipe_name"] ?>">
+	    <input name="prep_time" type="text" class="input" placeholder="Preparation time ex. xxx/minutes" value="<?= $row["prep_time"] ?>">
+		<input name="calories" type="text" class="input" placeholder="Number of calories" value="<?= $row["calories"] ?>">
+        <textarea class="form-control" class="input" name="url" placeholder="Picture link" value="<?= $row["url"] ?>"></textarea>
+        <textarea class="form-control" class="input" name="description" placeholder="Cooking Description" value="<?= $row["description"] ?>"></textarea>
+        <textarea class="form-control" class="input" name="ingredients" placeholder="Ingredients" value="<?= $row["ingredients"] ?>"></textarea>
+            <select name="meal_type" class="form-control selectpicker" value="<?= $row["meal_type"] ?>" >
+  <option  >Please select your meal type</option>
+  <option>Breakfast</option>
+  <option>Lunch</option>
+  <option>Dinner</option>
+</select>
+            <select name="type" class="form-control selectpicker" placeholder="Select your diet" value="<?= $row["type"] ?>" >
+  <option value=" "  >Please select your meal diet</option>
+  <option>Vegeterian</option>
+  <option>Vegan</option>
+  <option>Normal</option>
+</select>
     </div>
+    <button name="update">Update</button>
+</form>
 
-    <div class="footer">
-        <?php require_once '../components/footer.php' ?>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
-
 </html>
