@@ -10,6 +10,10 @@ if (isset($_SESSION["user"])) {
     header("Location:../home_user/home.php");
 }
 
+if (isset($_POST["back"])) {
+    header("Location:../admin/dashboard_users.php");
+}
+
 $id = $_GET["id"];
 $sql = "SELECT * FROM users WHERE user_id = $id ";
 $result = mysqli_query($connect, $sql);
@@ -48,60 +52,53 @@ if (isset($_POST["update"])) {
     }
 }
 ?>
-
-
-<!doctype html>
+    <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Update page</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="../home_user/create.css">
+  <link rel="stylesheet" href="../components/style.css">
+  </head>
 </head>
-
 <body>
-    <div class="container mt-5">
-        <h2>Update users </h2>
-        <form method="POST" enctype="multipart/form-data">
-            <div class="mb-3">
-                <label for="fname" class="form-label">First name</label>
-                <input type="text" class="form-control" value="<?= $row["fname"] ?>" id="fname" aria-describedby="fname" name="fname">
-            </div>
-            <div class="mb-3">
-                <label for="lname" class="form-label">Last name</label>
-                <input type="text" class="form-control" value="<?= $row["lname"] ?>" id="lname" aria-describedby="lname" name="lname">
-            </div>
 
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="text" class="form-control" value="<?= $row["email"] ?>" id="description" aria-describedby="email" name="email">
-            </div>
-            <div class="mb-3">
-                <label for="picture" class="form-label">Picture link</label>
-                <input type="text" class="form-control" value="<?= $row["picture"] ?>" id="picture" aria-describedby="picture" name="picture">
-            </div>
-
-            <div class="form-group">
-                <label class="col-md-4 control-label">Role</label>
-                <div class="col-md-4 selectContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                        <select name="role" class="form-control selectpicker">
-                            <option value=" ">Please Choise The Role</option>
-                            <option>blocked</option>
-                            <option>user</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
+<?php require_once '../components/admin_navbar.php' ?>
 
 
-            <button name="update" type="submit" class="btn btn-primary mt-3">Update user</button>
-            <a href="dashboard_users.php" class="btn btn-warning mt-3">Back to home page</a>
-        </form>
+<div class="formContainer">
+
+
+<div class="form-box">
+<form class="form" method="post">
+    <span class="title">Update User</span>
+    
+    <div class="form-container">
+        <input name="fname" type="text" class="input" placeholder="Recipe name" value="<?= $row["fname"] ?>">
+	    <input name="lname" type="text" class="input" placeholder="Preparation time ex. xxx/minutes" value="<?= $row["lname"] ?>">
+		<input name="email" type="text" class="input" placeholder="Number of calories" value="<?= $row["email"] ?>">
+        <input name="picture" type="text" class="input" placeholder="Number of calories" value="<?= $row["picture"] ?>">
+        <input name="role" type="text" class="input" placeholder="Number of calories" value="<?= $row["role"] ?>">
+       
+    </div>
+    <button name="update">Update</button>
+    <button name="back" >Back to home page</button>
+</form>
+
+</div>
+</div>
+  
+<div class="footer">
+        <?php require_once '../components/footer.php' ?>
+
     </div>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
-
 </html>
+
+
+ 
+

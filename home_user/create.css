@@ -3,11 +3,10 @@
     justify-content: center;
     background-image: url(https://images.pexels.com/photos/5202219/pexels-photo-5202219.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
     background-size: cover;
+    
 }
 
-input{
-    padding-top: 5px;
-}
+
 
 .form-box {
     margin-top: 50px;
@@ -23,8 +22,8 @@ input{
     position: relative;
     display: flex;
     flex-direction: column;
-    padding: 32px 24px 24px;
-    gap: 16px;
+    padding:  32px 24px 24px;
+    gap: 15px;
     text-align: center;
   }
   
@@ -43,14 +42,18 @@ input{
   .form-container {
     overflow: hidden;
     border-radius: 8px;
-    background-color: #fff;
-    margin: 1rem 0 .5rem;
+    margin: 1rem 0 0.5rem;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-width: 400px;
+    gap: 1rem;
+    
     
   }
   
   .input {
-    background: none;
+    background-color: #f1f7fe;
     border: 0;
     outline: 0;
     height: 40px;

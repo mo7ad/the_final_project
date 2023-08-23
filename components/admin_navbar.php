@@ -71,7 +71,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav fs-5">
 
-                    <li class="nav-item text_2 mx-3">Welcome <?= $rowPersons["fname"] ?></li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="../home_user/unvirfied.php">Unvirfied Recipes</a>
                     </li>

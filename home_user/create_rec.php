@@ -57,7 +57,7 @@ $rowUs = mysqli_fetch_assoc($resultUs);
     <span class="title">Create recipe!</span>
     <span class="subtitle">Share with us your favourite recepies</span>
     <div class="form-container">
-        <input name="recipe_name" type="text" class="input" placeholder="Recipe name">
+        <input name="recipe_name" type="text" class="input"  placeholder="Recipe name">
 	    <input name="prep_time" type="text" class="input" placeholder="Preparation time ex. xxx/minutes">
 		<input name="calories" type="text" class="input" placeholder="Number of calories">
         <textarea class="form-control" class="input" name="url" placeholder="Picture link"></textarea>

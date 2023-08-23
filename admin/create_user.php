@@ -4,6 +4,10 @@ $error = false;
 $fname = $lname = $email = $password = $role = $picture = "";
 $errorfname = $errorlname = $erroremail = $errorpassword = $errorpicture = "";
 
+if (isset($_POST["back"])) {
+    header("Location:../admin/dashboard_users.php");
+}
+
 function clear($input)
 {
     $data = trim($input);
@@ -69,64 +73,49 @@ if (isset($_POST["sign-up"])) {
 }
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Create User</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="../components/style.css">
-    <style>
-        body {
-            background-image: url(https://images.pexels.com/photos/5202219/pexels-photo-5202219.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="../home_user/create.css">
+  <link rel="stylesheet" href="../components/style.css">
+  </head>
 </head>
-
 <body>
-    <div class="container col-4 bg-light rounded" style="margin-top: 200px;">
-        <h1 class="text-center text_1 pt-3">Create a New User</h1>
-        <form method="post">
-            <div class="user-box">
-                <label for="fname" class="form-label">First Name</label>
-                <input type="text" class="form-control" id="fname" name="fname" placeholder="" value="<?= $fname ?>">
-                <span class="text-danger"><?= $errorfname ?></span>
-            </div>
 
-            <div class="user-box">
-                <label for="lname" class="form-label">Last Name</label>
-                <input type="text" class="form-control" id="lname" name="lname" placeholder="" value="<?= $lname ?>">
-                <span class="text-danger"><?= $errorlname ?></span>
-            </div>
+<?php require_once '../components/admin_navbar.php' ?>
 
-            <div class="user-box">
-                <label for="email" class="form-label">Email Address</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="" value="<?= $email ?>">
-                <span class="text-danger"><?= $erroremail ?></span>
-            </div>
+<div class="formContainer">
 
-            <div class="user-box">
-                <label for="picture" class="form-label">Image Link</label>
-                <input type="text" class="form-control" id="picture" name="picture" placeholder="" value="<?= $picture ?>">
-                <span class="text-danger"><?= $errorpicture ?></span>
-            </div>
 
-            <div class="user-box">
-                <label for="pass" class="form-label">Password</label>
-                <input type="password" class="form-control" id="pass" name="pass">
-                <span class="text-danger"><?= $errorpassword ?></span>
-            </div>
+<div class="form-box">
+<form class="form" method="post">
+    <span class="title">Create user!</span>
+    
+    <div class="form-container">
+        <input name="fname" type="text" class="input"  placeholder="First Name">
+	    <input name="lname" type="text" class="input" placeholder="Last Name">
+		<input name="email" type="text" class="input" placeholder="Email">
+        <input name="pass" type="password" class="input" placeholder="Password">
+        <input name="picture" type="text" class="input" placeholder="Picture url">
+        
+    </div>
+    <button name="create">Create</button>
+    <button name="back">Go Back</button>
+    
+</form>
 
-            <button name="sign-up" type="submit" class="btn btn-outline-success my-3">Create</button>
-            <span style="padding-left: 25px; font-size: 18px;">Already have an account? <a href="/Login/login.php" class="mx-3">Login here</a></span>
-        </form>
+</div>
+</div>
+
+<div class="footer">
+        <?php require_once '../components/footer.php' ?>
+
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
-
 </html>
