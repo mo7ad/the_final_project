@@ -37,9 +37,9 @@ if (mysqli_num_rows($result) > 0) {
                 </ul>
                    <div class='text-center'>"; // Open a new div for centering content
         if ($row["verified"] == 'verified') {
-            $layout .= "<a class='btn btn-outline-secondary my-2' href='a_recipes_ver.php?id=$row[recipes_id]'>unverified</a>";
+            $layout .= "<a class='btn btn-outline-secondary my-2' href='a_recipes_ver.php?id=$row[recipes_id]'>verified</a>";
         } else {
-            $layout .= "<a class='btn btn-outline-success my-2' href='a_recipes_ver.php?id=$row[recipes_id]'>verified</a>";
+            $layout .= "<a class='btn btn-outline-success my-2' href='a_recipes_ver.php?id=$row[recipes_id]'>unverfied</a>";
         }
         $layout .= " 
                  </div>
