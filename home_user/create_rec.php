@@ -21,6 +21,7 @@ $rowUs = mysqli_fetch_assoc($resultUs);
         $url = $_POST ["url"];
         $meal_type = $_POST ["meal_type"];
         $ingredients = $_POST ["ingredients"];
+         
         
 
         $sql = "INSERT INTO recipes (recipe_name,description,prep_time,calories,type,url,meal_type,ingredients,fk_user_id) VALUES ('$recipe_name','$description','$prep_time','$calories','$type','$url','$meal_type','$ingredients',$userID)";
@@ -41,134 +42,43 @@ $rowUs = mysqli_fetch_assoc($resultUs);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="create.css">
   </head>
 </head>
 <body>
 <?php require_once '../components/navbar.php' ?>
-<div class="container">
-
-<form class="well form-horizontal" action=" " method="post"  id="contact_form">
-<fieldset>
 
 
-<legend>Create your own recipe!</legend>
+<div class="formContainer">
 
 
-
-<div class="form-group">
-<label class="col-md-4 control-label">Recipe</label>  
-<div class="col-md-4 inputGroupContainer">
-<div class="input-group">
-<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-<input  name="recipe_name" placeholder="Recipe" class="form-control"  type="text">
-</div>
-</div>
-</div>
-
-
-
-<div class="form-group">
-<label class="col-md-4 control-label" >Preparation Time</label> 
-<div class="col-md-4 inputGroupContainer">
-<div class="input-group">
-<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-<input name="prep_time" placeholder="XX hours/minutes" class="form-control"  type="text">
-</div>
-</div>
-</div>
-
-
-   <div class="form-group">
-<label class="col-md-4 control-label">Calories</label>  
-<div class="col-md-4 inputGroupContainer">
-<div class="input-group">
-    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-<input name="calories" placeholder="XXXX calories" class="form-control"  type="text">
-</div>
-</div>
-</div>
-
-
-
-   
-<div class="form-group">
-<label class="col-md-4 control-label">Picture</label>
-<div class="col-md-4 inputGroupContainer">
-<div class="input-group">
-    <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-      <textarea class="form-control" name="url" placeholder="Picture link"></textarea>
-</div>
-</div>
-</div>
-
-
-
-<div class="form-group"> 
-<label class="col-md-4 control-label">Meal time</label>
-<div class="col-md-4 selectContainer">
-<div class="input-group">
-    <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-<select name="meal_type" class="form-control selectpicker" >
-  <option value=" " >Please select your meal time</option>
+<div class="form-box">
+<form class="form" method="post">
+    <span class="title">Create recipe!</span>
+    <span class="subtitle">Share with us your favourite recepies</span>
+    <div class="form-container">
+        <input name="recipe_name" type="text" class="input" placeholder="Recipe name">
+	    <input name="prep_time" type="text" class="input" placeholder="Preparation time ex. xxx/minutes">
+		<input name="calories" type="text" class="input" placeholder="Number of calories">
+        <textarea class="form-control" class="input" name="url" placeholder="Picture link"></textarea>
+        <textarea class="form-control" class="input" name="description" placeholder="Cooking Description"></textarea>
+        <textarea class="form-control" class="input" name="ingredients" placeholder="Ingredients"></textarea>
+            <select name="meal_type" class="form-control selectpicker" >
+  <option value="Please select your meal time" >Please select your meal type</option>
   <option>Breakfast</option>
   <option>Lunch</option>
   <option>Dinner</option>
 </select>
-</div>
-</div>
-</div>
-
-
-
-<div class="form-group"> 
-<label class="col-md-4 control-label">Meal type</label>
-<div class="col-md-4 selectContainer">
-<div class="input-group">
-    <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-<select name="type" class="form-control selectpicker" >
-  <option value=" " >Please select your food type</option>
-  <option>Vegan</option>
+            <select name="type" class="form-control selectpicker" placeholder="Select your diet" >
+  <option value=" "  >Please select your meal diet</option>
   <option>Vegeterian</option>
+  <option>Vegan</option>
   <option>Normal</option>
 </select>
-</div>
-</div>
-</div>
-
-
-
-<div class="form-group">
-<label class="col-md-4 control-label">Ingredients</label>
-<div class="col-md-4 inputGroupContainer">
-<div class="input-group">
-    <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-      <textarea class="form-control" name="ingredients" placeholder="Ingredients"></textarea>
-</div>
-</div>
-</div>
-
-
-
-<div class="form-group">
-<label class="col-md-4 control-label">Preparation description</label>
-<div class="col-md-4 inputGroupContainer">
-<div class="input-group">
-    <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-      <textarea class="form-control" name="description" placeholder="Project Description"></textarea>
-</div>
-</div>
-</div>
-
-
-<div class="form-group">
-<label class="col-md-4 control-label"></label>
-<div class="col-md-4">
-<button type="submit" class="btn btn-warning" name="create" >Send <span class="glyphicon glyphicon-send"></span></button>
-</div>
-</div>
-
-</fieldset>
+    </div>
+    <button name="create">Create</button>
 </form>
+
 </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
