@@ -45,7 +45,7 @@ if (isset($_POST["update"])) {
     $result = mysqli_query($connect, $sql);
 
     if ($result) {
-        echo "success updating";
+        
         header("refresh: 3; url = dashboard_users.php");
     } else {
         echo "error";

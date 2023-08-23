@@ -11,6 +11,10 @@ $rowUs = mysqli_fetch_assoc($resultUs);
 
 $recipe_name = $prep_time = $description = $calories = $type = $verified = $url = $meal_type = $ingredients = "";
 
+if (isset($_POST["back"])) {
+    header("Location: recipes.php");
+}
+
 if (isset($_POST["create"])) {
 
 
@@ -19,16 +23,15 @@ if (isset($_POST["create"])) {
     $description = $_POST["description"];
     $calories = $_POST["calories"];
     $type = $_POST["type"];
-    $verified = $_POST["verified"];
     $url = $_POST["url"];
     $meal_type = $_POST["meal_type"];
     $ingredients = $_POST["ingredients"];
 
 
-    $sql = "INSERT INTO recipes (recipe_name,description,prep_time,calories,type,url,verified,meal_type,ingredients,fk_user_id) VALUES ('$recipe_name','$description','$prep_time','$calories','$type','$url','$verified', '$meal_type','$ingredients',$userID)";
+    $sql = "INSERT INTO recipes (recipe_name,description,prep_time,calories,type,url,meal_type,ingredients,fk_user_id) VALUES ('$recipe_name','$description','$prep_time','$calories','$type','$url','$meal_type','$ingredients',$userID)";
 
     if (mysqli_query($connect, $sql)) {
-        echo "success";
+        
         header("refresh: 3; url = recipes.php");
     } else {
         echo "failed";

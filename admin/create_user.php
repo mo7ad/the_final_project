@@ -5,8 +5,9 @@ $fname = $lname = $email = $password = $role = $picture = "";
 $errorfname = $errorlname = $erroremail = $errorpassword = $errorpicture = "";
 
 if (isset($_POST["back"])) {
-    header("Location:../admin/dashboard_users.php");
+    header("Location: recipes.php");
 }
+
 
 function clear($input)
 {
@@ -68,9 +69,10 @@ if (isset($_POST["sign-up"])) {
         $password = hash("sha256", $password);
         $sql = "INSERT INTO `users`( `fname`, `lname`, `email`, `pass`,  `picture`) VALUES ('$fname','$lname','$email','$password','$picture')";
         $result = mysqli_query($connect, $sql);
-        header("Location: /Login/login.php");
+        header("Location: dashboard_users.php");
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -103,7 +105,7 @@ if (isset($_POST["sign-up"])) {
         <input name="picture" type="text" class="input" placeholder="Picture url">
         
     </div>
-    <button name="create">Create</button>
+    <button name="sign-up">Create</button>
     <button name="back">Go Back</button>
     
 </form>

@@ -5,14 +5,15 @@ $sqlPersons = "SELECT * FROM `users`";
 $resultPersons = mysqli_query($connect, $sqlPersons);
 $rowPersons = mysqli_fetch_assoc($resultPersons);
 
-if (isset($_POST["back"])) {
-    header("Location:../admin/recipes.php");
-}
 
 $id = $_GET["id"];
 $sql = "SELECT * FROM recipes WHERE recipes_id = $id";
 $result = mysqli_query($connect, $sql);
 $row = mysqli_fetch_assoc($result);
+
+if (isset($_POST["back"])) {
+    header("Location: recipes.php");
+}
 
 if (isset($_POST["update"])) {
     $recipe_name = $_POST["recipe_name"];
@@ -20,19 +21,22 @@ if (isset($_POST["update"])) {
     $description = $_POST["description"];
     $calories = $_POST["calories"];
     $type = $_POST["type"];
-    $verified = $_POST["verified"];
     $url = $_POST["url"];
     $meal_type = $_POST["meal_type"];
     $ingredients = $_POST["ingredients"];
 
+    $sql=" UPDATE `recipes` SET `recipe_name`='$recipe_name',`prep_time`='$prep_time',`description`='$description',`calories`='$calories',`type`='$type',`url`='$url',`meal_type`='$meal_type',`ingredients`='$ingredients' WHERE recipes_id=$id";
+
 
     if (mysqli_query($connect, $sql)) {
-        echo "<span class='text_1'>Success</span>";
+        
         header("refresh: 3; url = recipes.php");
     } else {
         echo "<span class='text_1'>Error</span>";
     }
 }
+
+
 ?>
 
 
