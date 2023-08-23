@@ -30,8 +30,8 @@ if (mysqli_num_rows($result) > 0) {
                 <td>" . $row['meal_type'] . "</td>
                 <td>" . $row['type'] . "</td>
                 <td>" . $row['date'] . "</td>
-                <td><a href='details.php?id=" . $row['fk_recipes_id'] . "'><button class='btn btn-primary btn-sm w-100 mb-2' type='button'>Info</button></a>
-                <a href='delete_plan.php?id=" . $row['planner_id'] . "'><button class='btn btn-danger btn-sm w-100' type='button'>Delete from plan</button></a></td>
+                <td><a href='details.php?id=" . $row['fk_recipes_id'] . "'><button class='btn btn-outline-primary btn-sm w-50 mb-2' type='button'>Info</button></a>
+                <a href='delete_plan.php?id=" . $row['planner_id'] . "'><button class='btn btn-outline-danger btn-sm w-50' type='button'>Delete from plan</button></a></td>
                 </tr>";
     }
 } else {
