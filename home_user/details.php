@@ -46,7 +46,18 @@
         <h1>Minutes: <?php echo $row["prep_time"]; ?></h1>
         
         <h1>Calories: <?php echo $row["calories"]; ?></h1>
-        
+        <br>
+        <br>
+        <?php
+            if (isset($_SESSION["admin"])) {
+              echo "<a href='../admin/recipes.php' class='btn btn-outline-warning mx-3'>Go Back</a>";
+            } elseif (isset($_SESSION["user"])) {
+              echo " <a href='home.php' class='btn btn-outline-warning mx-3'>Go Back</a>";
+            }
+            ?>
+
+
+        <a href='home.php' class='btn btn-outline-warning mx-3'>Go Back</a>
       </div>
       
       

@@ -25,6 +25,8 @@ body {
     float: left;
     height: 453px;
     width: 327px;
+    object-fit: cover;
+    
   }
   
   .product-img img {
