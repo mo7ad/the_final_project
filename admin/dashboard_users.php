@@ -95,6 +95,8 @@ mysqli_close($connect);
             transition: transform 0.2s, filter 0.2s;
             filter: brightness(1);
             /* Reset brightness */
+            transition: border-color 0.3s ease;
+            border: 0;
         }
 
         /* Style for the card when hovered */
@@ -105,6 +107,7 @@ mysqli_close($connect);
             /* Add a subtle shadow */
             filter: brightness(1.2);
             /* Increase brightness on hover */
+            border: 5px solid #39ff14;
         }
 
         /* Style for other cards when a card is hovered */
