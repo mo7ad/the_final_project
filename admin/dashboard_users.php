@@ -89,40 +89,28 @@ mysqli_close($connect);
             }
         }
 
+
+        /* Style for the card when not hovered */
         .card {
-            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-            transition: transform 1.5s ease;
+            transition: transform 0.2s, filter 0.2s;
+            filter: brightness(1);
+            /* Reset brightness */
         }
 
+        /* Style for the card when hovered */
         .card:hover {
-            transform: rotateY(360deg);
-            /* Adjust the angle as needed */
+            transform: translateY(-5px);
+            /* Lift the card slightly */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Add a subtle shadow */
+            filter: brightness(1.2);
+            /* Increase brightness on hover */
         }
 
-        .shake:hover {
-            animation: shake 0.3s linear infinite;
-        }
-
-        @keyframes shake {
-            0% {
-                transform: translateX(0);
-            }
-
-            25% {
-                transform: translateX(-5px);
-            }
-
-            50% {
-                transform: translateX(5px);
-            }
-
-            75% {
-                transform: translateX(-5px);
-            }
-
-            100% {
-                transform: translateX(5px);
-            }
+        /* Style for other cards when a card is hovered */
+        .card:hover~.card {
+            filter: blur(2px);
+            /* Apply blur to other cards */
         }
     </style>
 
