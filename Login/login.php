@@ -72,19 +72,22 @@ if (isset($_POST["login"])) {
 
 <body>
 
-    <div class="login-box col-3" style="height: 430px; margin-top: 100px;">
+    <div class="login-box col-3" style="height: 500px; margin-top: 100px;">
         <form method="post">
             <div class="user-box">
                 <input type="email" class="form-control" id="email" name="email" placeholder="Email address" value="<?= $email ?>">
-                <label for="email" class="form-label">Email address</label>
+                <label for="email" class="form-label ">Email address</label>
                 <span class="text-danger"><?= $erroremail ?></span>
             </div>
             <div class="user-box">
-                <input type="password" class="form-control" id="pass" name="pass">
+                <input type="password" class="form-control " id="pass" name="pass">
                 <label for="pass" class="form-label">Password</label>
             </div>
             <center>
-                <button name="login" type="submit" class="btn btn-outline-success my-4">Login</button><br>
+                <a href="#">
+                    <button name="login" type="submit" class="btn btn-link text-decoration-none text-light fs-4">Login</button><br>
+                </a>
+                <br>
                 <span class="text_2">You don't have an account?</span><br>
                 <a href="register.php" class="col-6">Sign up here</a>
             </center>
