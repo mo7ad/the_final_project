@@ -83,7 +83,7 @@ $row = mysqli_fetch_assoc($result);
       color: #36f030;
     }
 
-    .solution_card .so_top_icon {}
+    /* .solution_card .so_top_icon {} */
 
     .solution_card .solu_title div {
       color: #212121;
@@ -116,7 +116,7 @@ $row = mysqli_fetch_assoc($result);
       font-size: 2.5rem;
     }
 
-    .our_solution_content p {}
+    /* .our_solution_content p {} */
 
     .hover_color_bubble {
       position: absolute;
