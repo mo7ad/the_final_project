@@ -3,6 +3,9 @@
 
 require_once "../db_connect.php";
 
+
+
+
 // if (isset($_SESSION['user'])) {
 //     $user_id = $_SESSION['user'];
 
@@ -59,31 +62,9 @@ require_once "../db_connect.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../components/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap" rel="stylesheet">
-    <title>Welcome <?php echo $rowPersons["fname"]; ?></title>
-
+    <title>Landing Page</title>
     <?php require_once '../components/bootstrap.php' ?>
 
-    <style>
-        #myBtn {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            right: 30px;
-            z-index: 99;
-            font-size: 18px;
-            border: none;
-            outline: none;
-            background-color: #335b19;
-            color: white;
-            cursor: pointer;
-            padding: 15px;
-            border-radius: 4px;
-        }
-
-        #myBtn:hover {
-            background-color: #555;
-        }
-    </style>
 </head>
 
 <body>
@@ -220,10 +201,12 @@ require_once "../db_connect.php";
             <!-- <?php echo $cards; ?> -->
         </div>
     </div>
-    <div id="footer" class="footer">
+    <div id="footer" class="footer" style="font-size: 15px;">
         <?php require_once '../components/footer.php' ?>
 
     </div>
+    
+    <!-- up button  -->
     <button onclick="topFunction()" id="myBtn" title="Go to top">
     <i class="fa-solid fa-arrow-up fa-bounce"></i>
     </button>
