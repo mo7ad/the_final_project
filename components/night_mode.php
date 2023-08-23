@@ -20,7 +20,7 @@
         }
 
         #dark_mode {
-            color: white;
+            color: #e8e8e8;
 
         }
 
