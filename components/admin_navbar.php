@@ -73,6 +73,10 @@
 
                     <li class="nav-item text_2 mx-3">Welcome <?= $rowPersons["fname"] ?></li>
                     <li class="nav-item">
+                        <a class="nav-link" href="../home_user/unvirfied.php">Unvirfied Recipes</a>
+                    </li>
+
+                    <li class="nav-item">
                         <a class="nav-link" href="../admin/recipes.php">Recipes</a>
                     </li>
                     <li class="nav-item">

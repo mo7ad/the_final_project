@@ -253,7 +253,7 @@ if (isset($_POST["sign-up"])) {
                 <input placeholder="" type="password" class="form-control" id="pass" name="pass">
                 <span>Password</span>
             </label>
-            <button class="submit">Submit</button>
+            <button name="sign-up" class="submit">Submit</button>
             <p class="signin">Already have an acount ? <a href="login.php">Login</a> </p>
         </form>
     </div>

@@ -130,9 +130,14 @@ mysqli_close($connect);
             transition: transform 1.5s ease;
         }
 
+        .card {
+            transition: opacity 0.3s;
+            /* Add smooth transition effect */
+        }
 
         .card:hover {
-            transform: rotateY(360deg);
+            opacity: 0.5;
+            /* transform: rotateY(360deg); */
             /* Adjust the angle as needed */
         }
 
@@ -173,7 +178,7 @@ mysqli_close($connect);
     <div class="px-4 py-5 mb-5 text-center bordered shadow" style="height:500px; background-image: url(https://images.pexels.com/photos/5202219/pexels-photo-5202219.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
             background-size: cover;">
         <div class="transparent-bg" style="background-color: rgba(255, 255, 255, 0.1);padding: 10px; display: inline-block; border-radius: 100px; ">
-            <h1 style="text-shadow: 2px 2px 2px white; letter-spacing: 4px; font-size: 80px;" class="display-5 fw-bold mt-4">MealPlanner menu</h1>
+            <h1 style="text-shadow: 2px 2px 2px white; letter-spacing: 4px; font-size: 55px;" class="display-5 fw-bold mt-4">MealPlanner menu</h1>
             <div class="col-lg-6 mx-auto">
             </div>
             <div class="sliding-text-container">

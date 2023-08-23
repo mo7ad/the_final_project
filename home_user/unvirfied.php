@@ -17,24 +17,60 @@ $sqlPersons = "SELECT * FROM `users`";
 $resultPersons = mysqli_query($connect, $sqlPersons);
 $rowPersons = mysqli_fetch_assoc($resultPersons);
 
+$sql = "SELECT * FROM `recipes` WHERE verified = 'unverified' ";
+$result = mysqli_query($connect, $sql);
+
 $layout = "";
 
-if (mysqli_num_rows($resultPersons) > 0) {
-    while ($userPerson = mysqli_fetch_assoc($resultPersons)) {
+if (mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
         $layout .=
             "<div class='col-md-4 mb-4'>
-        <div class='card h-100'>
-            <img src='{$userPerson["picture"]}' class='card-img-top' style='object-fit: cover; height: 100%; width:100%;' alt=''>
-            <div class='card-body'>
-                <h4 class='card-title text-center'><i>User: {$userPerson["fname"]} {$userPerson["lname"]}</i></h4>
-                <ul class='list-unstyled mb-3'>
-                    <li class='text-center'><strong>Email: </strong>{$userPerson["email"]}</li>
-                    <li class='text-center'><strong>Role: </strong>{$userPerson["role"]}</li>
+                <div class='card h-100'>
+                    <img src='{$row["url"]}' class='card-img-top' style='object-fit: cover; height: 320px; width:100%;' alt=''>
+                    <div class='card-body'>
+                    <h4 class='card-title text-center'><i>{$row["recipe_name"]}</i></h4>
+                    <ul class='list-unstyled mb-3'>
+                    <li class='text-center'><strong>Preparation Time: </strong>{$row["prep_time"]}</li>
+                    <li class='text-center'><strong>Type: </strong>{$row["type"]}</li>
+                    <li class='text-center'><strong>Meal Type: </strong>{$row["meal_type"]}</li>
                 </ul>
+                   <div class='text-center'>"; // Open a new div for centering content
+        if ($row["verified"] == 'verified') {
+            $layout .= "<a class='btn btn-outline-secondary my-2' href='../admin/a_recipes_ver.php?id=$row[recipes_id]'>unverified</a>";
+        } else {
+            $layout .= "<a class='btn btn-outline-success my-2' href='../admin/a_recipes_ver.php?id=$row[recipes_id]'>verified</a>";
+        }
+        $layout .= " 
+                 </div>
+                    
                 <div class='d-flex justify-content-center'>
-                <a href='update_user.php?id={$userPerson["user_id"]}' class='btn btn-outline-warning mx-3'>Update</a>
-                <a href='delete_user.php?id={$userPerson["user_id"]}' class='btn btn-outline-danger'>Delete</a> </div>
+                <button type='button' class='btn btn-outline-danger' data-bs-toggle='modal' data-bs-target='#exampleModal{$row['recipes_id']}'>Delete
+                </button>
+                <a href='update_rec.php?id={$row["recipes_id"]}' class='btn btn-outline-secondary mx-3'>Update</a>
+                <a href='details.php?id={$row["recipes_id"]}' class='btn btn-outline-secondary'>Details</a> </div>
+                
             </div>
+            </div>
+
+        <div class='modal fade' id='exampleModal{$row['recipes_id']}' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+        <div class='modal-dialog'>
+            <div class='modal-content'>
+                <div class='modal-header'>
+                    <h1 class='modal-title fs-5' id='exampleModalLabel'>Modal title</h1>
+                    <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                </div>
+
+                <div class='modal-body'>
+                    Are you sure you want to delete the record?
+                </div>
+
+                <div class='modal-footer'>
+                    <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>NO</button>
+                    <a href='delete_rec.php?id={$row['recipes_id']}' class='btn btn-danger'>YES</a>
+                </div>
+            </div>
+        </div>
         </div>
     </div>";
     }
@@ -94,10 +130,17 @@ mysqli_close($connect);
             transition: transform 1.5s ease;
         }
 
+        .card {
+            transition: opacity 0.3s;
+            /* Add smooth transition effect */
+        }
+
         .card:hover {
-            transform: rotateY(360deg);
+            opacity: 0.5;
+            /* transform: rotateY(360deg); */
             /* Adjust the angle as needed */
         }
+
 
         .shake:hover {
             animation: shake 0.3s linear infinite;
@@ -131,6 +174,7 @@ mysqli_close($connect);
 <body>
     <?php require_once '../components/admin_navbar.php' ?>
 
+
     <div class="px-4 py-5 mb-5 text-center bordered shadow" style="height:500px; background-image: url(https://images.pexels.com/photos/5202219/pexels-photo-5202219.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
             background-size: cover;">
         <div class="transparent-bg" style="background-color: rgba(255, 255, 255, 0.1);padding: 10px; display: inline-block; border-radius: 100px; ">
@@ -143,7 +187,7 @@ mysqli_close($connect);
                 </div>
             </div>
             <form class="my-4">
-                <a href='create_user.php' class='btn btn-outline-light col-5 fs-2 shake' style='box-shadow: 2px 2px 2px black;'>Create user</a>
+                <a href='create_rec.php' class='btn btn-outline-light col-5 fs-2 shake' style='box-shadow: 2px 2px 2px black;'>Create recipe</a>
             </form>
         </div>
     </div>
@@ -153,6 +197,7 @@ mysqli_close($connect);
             <?php echo $layout; ?>
         </div>
     </div>
+
 
     <div class="footer">
         <?php require_once '../components/footer.php' ?>

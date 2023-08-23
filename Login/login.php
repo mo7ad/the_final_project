@@ -72,27 +72,49 @@ if (isset($_POST["login"])) {
 
 <body>
 
-    <div class="login-box col-3" style="height: 500px; margin-top: 100px;">
+    <div class="login-box col-3" style="height: 500px;">
         <form method="post">
             <div class="user-box">
-                <input type="email" class="form-control" id="email" name="email" placeholder="Email address" value="<?= $email ?>">
-                <label for="email" class="form-label ">Email address</label>
+                <input type="email" name="email" placeholder="Email address" value="<?= $email ?>" required="">
+                <label for="email">Email address</label>
                 <span class="text-danger"><?= $erroremail ?></span>
             </div>
             <div class="user-box">
-                <input type="password" class="form-control " id="pass" name="pass">
-                <label for="pass" class="form-label">Password</label>
+                <input type="password" name="pass" required="">
+                <label for="pass">Password</label>
             </div>
             <center>
                 <a href="#">
-                    <button name="login" type="submit" class="btn btn-link text-decoration-none text-light fs-4">Login</button><br>
+                    <button name="login" type="submit" class="btn btn-link text-decoration-none text-light fs-4"><span></span>Login</button>
+                    
+
                 </a>
                 <br>
                 <span class="text_2">You don't have an account?</span><br>
                 <a href="register.php" class="col-6">Sign up here</a>
+      
+
             </center>
         </form>
     </div>
+
+    <!-- <div class="login-box"> -->
+
+    <!-- <form>
+   <div class="user-box">
+     <input type="text" name="" required="">
+     <label>Username</label>
+   </div>
+   <div class="user-box">
+     <input type="password" name="" required="">
+     <label>Password</label>
+   </div><center>
+   <a href="#">
+          SEND
+      <span></span>
+   </a></center>
+ </form>
+</div> -->
 
     <!--     <div class="container">
         <h1 class="text-center">Login page</h1>
