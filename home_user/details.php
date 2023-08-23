@@ -1,5 +1,5 @@
 <?php 
- 
+    session_start();
     require_once "../db_connect.php";
 
     $id = $_GET["id"];
@@ -57,7 +57,7 @@
             ?>
 
 
-        <a href='home.php' class='btn btn-outline-warning mx-3'>Go Back</a>
+        
       </div>
       
       
