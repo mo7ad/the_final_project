@@ -56,17 +56,17 @@ if (isset($_POST["update"])) {
         <input name="recipe_name" type="text" class="input" placeholder="Recipe name" value="<?= $row["recipe_name"] ?>">
 	    <input name="prep_time" type="text" class="input" placeholder="Preparation time ex. xxx/minutes" value="<?= $row["prep_time"] ?>">
 		<input name="calories" type="text" class="input" placeholder="Number of calories" value="<?= $row["calories"] ?>">
-        <textarea class="form-control" class="input" name="url" placeholder="Picture link" value="<?= $row["url"] ?>"></textarea>
-        <textarea class="form-control" class="input" name="description" placeholder="Cooking Description" value="<?= $row["description"] ?>"></textarea>
-        <textarea class="form-control" class="input" name="ingredients" placeholder="Ingredients" value="<?= $row["ingredients"] ?>"></textarea>
+        <textarea class="form-control" class="input" name="url" placeholder="Picture link" value="<?= $row["url"] ?>"><?= $row["url"] ?></textarea>
+        <textarea class="form-control" class="input" name="description" placeholder="Cooking Description" value="<?= $row["description"] ?>"><?= $row["description"] ?></textarea>
+        <textarea class="form-control" class="input" name="ingredients" placeholder="Ingredients" value="<?= $row["ingredients"] ?>"><?= $row["ingredients"] ?></textarea>
             <select name="meal_type" class="form-control selectpicker" value="<?= $row["meal_type"] ?>" >
-  <option  >Please select your meal type</option>
+  <option  ><?= $row["meal_type"] ?></option>
   <option>Breakfast</option>
   <option>Lunch</option>
   <option>Dinner</option>
 </select>
             <select name="type" class="form-control selectpicker" placeholder="Select your diet" value="<?= $row["type"] ?>" >
-  <option value=" "  >Please select your meal diet</option>
+  <option value=" "  ><?= $row["type"] ?></option>
   <option>Vegeterian</option>
   <option>Vegan</option>
   <option>Normal</option>
