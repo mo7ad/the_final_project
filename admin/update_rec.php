@@ -1,6 +1,11 @@
 <?php
 require_once "../db_connect.php";
 
+$sqlPersons = "SELECT * FROM `users`";
+$resultPersons = mysqli_query($connect, $sqlPersons);
+$rowPersons = mysqli_fetch_assoc($resultPersons);
+
+
 
 $id = $_GET["id"];
 $sql = "SELECT * FROM recipes WHERE recipes_id = $id";

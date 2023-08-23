@@ -30,14 +30,14 @@ if (mysqli_num_rows($result) > 0) {
 
         $cards .= "<div class='col-md-4 mb-4'>
         <div class='card h-100 shadow'>
-            <img src='" . $row['url'] . "' class='card-img-top' style='object-fit: cover; height: 200px;' alt='" . $row['recipe_name'] . "'>
+            <img src='" . $row['url'] . "'  class='card-img-top' style='object-fit: cover; height: 320px; width:100%;' alt='" . $row['recipe_name'] . "'>
             <div class='card-body'>
                 <h4 class='card-title text-center'><i>" . $row['recipe_name'] . "</i></h4>
                 <ul class='list-unstyled mb-3'>
-                    <li><strong>Type:</strong> " . $row['type'] . "</li>
-                    <li><strong>Preparation time:</strong> " . $row['prep_time'] . "</li>
-                    <li><strong>Calories:</strong> " . $row['calories'] . "</li>
-                    <li><strong>Diet:</strong> " . $row['meal_type'] . "</li>
+                    <li class='text-center'><strong>Type:</strong> " . $row['type'] . "</li>
+                    <li class='text-center'><strong>Preparation time:</strong> " . $row['prep_time'] . "</li>
+                    <li class='text-center'><strong>Calories:</strong> " . $row['calories'] . "</li>
+                    <li class='text-center'><strong>Diet:</strong> " . $row['meal_type'] . "</li>
                 </ul>
                 <div class='d-flex justify-content-center'>
                     <a href='details.php?id=" . $row['recipes_id'] . "' class='btn btn-outline-success btn-sm mr-2 mx-2' role='button'>More Info</a>
@@ -65,6 +65,81 @@ if (mysqli_num_rows($result) > 0) {
 
     <?php require_once '../components/bootstrap.php' ?>
 
+    <style>
+        /* Add the sliding text animation styles here */
+        .sliding-text-container {
+            position: relative;
+            width: 100%;
+            height: 130px;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0);
+        }
+
+        .sliding-text {
+            position: absolute;
+            top: 10%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            font-size: 2em;
+            animation: slide-up 8s linear infinite;
+        }
+
+        @keyframes slide-up {
+            0% {
+                transform: translateY(100%);
+            }
+
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+
+        .card {
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            transition: transform 1.5s ease;
+        }
+
+        .card {
+            transition: opacity 0.3s;
+            /* Add smooth transition effect */
+        }
+
+        .card:hover {
+            opacity: 0.5;
+            /* transform: rotateY(360deg); */
+            /* Adjust the angle as needed */
+        }
+
+
+        .shake:hover {
+            animation: shake 0.3s linear infinite;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-5px);
+            }
+
+            50% {
+                transform: translateX(5px);
+            }
+
+            75% {
+                transform: translateX(-5px);
+            }
+
+            100% {
+                transform: translateX(5px);
+            }
+        }
+    </style>
 </head>
 
 <body>
