@@ -196,6 +196,7 @@ require_once "../db_connect.php";
     </div>
     <!--end counter-->
 
+   
     <div class="container">
         <div class="row row-cols-lg-3 ">
             <!-- <?php echo $cards; ?> -->

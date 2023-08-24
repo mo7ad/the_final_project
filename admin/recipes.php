@@ -42,15 +42,15 @@ if (mysqli_num_rows($result) > 0) {
             $layout .= "<a class='btn btn-outline-success my-2' href='a_recipes_ver.php?id=$row[recipes_id]'>unverfied</a>";
         }
         $layout .= " 
-                 </div>
+             </div>
                     
                 <div class='d-flex justify-content-center'>
-                <button type='button' class='btn btn-outline-danger' data-bs-toggle='modal' data-bs-target='#exampleModal{$row['recipes_id']}'>Delete
-                </button>
-                <a href='update_rec.php?id={$row["recipes_id"]}' class='btn btn-outline-secondary mx-3'>Update</a>
-                <a href='../home_user/details.php?id={$row["recipes_id"]}' class='btn btn-outline-secondary'>Details</a> </div>
+                    <button type='button' class='btn btn-outline-danger' data-bs-toggle='modal' data-bs-target='#exampleModal{$row['recipes_id']}'>Delete
+                    </button>
+                    <a href='update_rec.php?id={$row["recipes_id"]}' class='btn btn-outline-secondary mx-3'>Update</a>
+                    <a href='../home_user/details.php?id={$row["recipes_id"]}' class='btn btn-outline-secondary'>Details</a> </div>
                 
-            </div>
+                </div>
             </div>
 
         <div class='modal fade' id='exampleModal{$row['recipes_id']}' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
@@ -94,6 +94,8 @@ mysqli_close($connect);
     <?php require_once '../components/bootstrap.php' ?>
 
     <style>
+        
+
         /* Add the sliding text animation styles here */
         .sliding-text-container {
             position: relative;
