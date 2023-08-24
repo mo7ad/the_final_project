@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amazing Navbar</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <style>
         /* Custom styling for the navbar */
         body {
@@ -71,7 +71,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav fs-5">
 
-                    
+
                     <li class="nav-item">
                         <a class="nav-link" href="../home_user/unvirfied.php">Unverified Recipes</a>
                     </li>
@@ -90,7 +90,7 @@
         </div>
     </nav>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>

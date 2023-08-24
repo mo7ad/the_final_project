@@ -63,26 +63,33 @@ if (mysqli_num_rows($result) > 0) {
     <link rel="stylesheet" href="../components/style.css">
     <title>Welcome <?php echo $rowPersons["fname"]; ?></title>
 
-    <?php require_once '../components/bootstrap.php' ?>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
 
     <style>
-/* Style for the card when not hovered */
-.card {
-    transition: transform 0.2s, filter 0.2s;
-    filter: brightness(1); /* Reset brightness */
-}
+        /* Style for the card when not hovered */
+        .card {
+            transition: transform 0.2s, filter 0.2s;
+            filter: brightness(1);
+            /* Reset brightness */
+        }
 
-/* Style for the card when hovered */
-.card:hover {
-    transform: translateY(-5px); /* Lift the card slightly */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-    filter: brightness(1.2); /* Increase brightness on hover */
-}
+        /* Style for the card when hovered */
+        .card:hover {
+            transform: translateY(-5px);
+            /* Lift the card slightly */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Add a subtle shadow */
+            filter: brightness(1.2);
+            /* Increase brightness on hover */
+        }
 
-/* Style for other cards when a card is hovered */
-.card:hover ~ .card {
-    filter: blur(2px); /* Apply blur to other cards */
-}    </style>
+        /* Style for other cards when a card is hovered */
+        .card:hover~.card {
+            filter: blur(2px);
+            /* Apply blur to other cards */
+        }
+    </style>
 
 </head>
 
@@ -134,9 +141,9 @@ if (mysqli_num_rows($result) > 0) {
 
     </div>
 
-        <!-- up button  -->
-        <button onclick="topFunction()" id="myBtn" title="Go to top">
-    <i class="fa-solid fa-arrow-up fa-bounce"></i>
+    <!-- up button  -->
+    <button onclick="topFunction()" id="myBtn" title="Go to top">
+        <i class="fa-solid fa-arrow-up fa-bounce"></i>
     </button>
 
 
@@ -165,6 +172,7 @@ if (mysqli_num_rows($result) > 0) {
     </script>
     <script src="https://kit.fontawesome.com/02a86c689a.js" crossorigin="anonymous"></script>
     <script src="../components/count.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
 
 </body>

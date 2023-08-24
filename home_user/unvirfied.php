@@ -91,7 +91,8 @@ mysqli_close($connect);
     <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap" rel="stylesheet">
     <title>Welcome <?php echo $rowPersons["fname"]; ?></title>
 
-    <?php require_once '../components/bootstrap.php' ?>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
 
     <style>
         /* Add the sliding text animation styles here */
@@ -184,6 +185,7 @@ mysqli_close($connect);
     <div class="footer">
         <?php require_once '../components/footer.php' ?>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
 </body>
 
