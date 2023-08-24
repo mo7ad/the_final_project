@@ -22,7 +22,7 @@ if (isset($_POST['filter'])) {
                     </ul>
                     <div class='d-flex justify-content-center'>
                         <a href='details.php?id=" . $row['recipes_id'] . "' class='btn btn-success btn-sm mr-2 mx-2' role='button'>More Info</a>
-                        <a href='select_date.php?id=" . $row['recipes_id'] ."' class='btn btn-primary btn-sm' role='button'>Add to Plan</a>
+                        <a href='select_date.php?id=" . $row['recipes_id'] . "' class='btn btn-primary btn-sm' role='button'>Add to Plan</a>
                     </div>
                 </div>
             </div>
@@ -41,7 +41,7 @@ if (isset($_POST['filter'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../components/style.css">
-    <title>Welcome <?php echo $rowPersons["fname"]; ?></title>
+    <title>Filter page</title>
 
     <?php require_once '../components/bootstrap.php' ?>
 
