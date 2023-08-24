@@ -86,13 +86,13 @@ if (isset($_POST["login"])) {
             <center>
                 <a href="#">
                     <button name="login" type="submit" class="btn btn-link text-decoration-none text-light fs-4"><span></span>Login</button>
-                    
+
 
                 </a>
                 <br>
-                <span class="text_2">You don't have an account?</span><br>
+                <span class="text_2 text-white">You don't have an account?</span><br>
                 <a href="register.php" class="col-6">Sign up here</a>
-      
+
 
             </center>
         </form>
