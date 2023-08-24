@@ -235,7 +235,7 @@ $row = mysqli_fetch_assoc($result);
                       $ingredients = $row["ingredients"];
                       $ingredientsWithLink = preg_replace(
                         '/(https?:\/\/\S+)/i',
-                        '<a href="$1" target="_blank">Click here</a>',
+                        '<a href="$1" class="text-decoration-none text-black" target="_blank">Click here</a>',
                         $ingredients
                       );
                       echo $ingredientsWithLink;
