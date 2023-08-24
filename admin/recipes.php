@@ -31,7 +31,7 @@ if (mysqli_num_rows($result) > 0) {
                     <div class='card-body'>
                     <h4 class='card-title text-center'><i>{$row["recipe_name"]}</i></h4>
                     <ul class='list-unstyled mb-3'>
-                    <li class='text-center'><strong>Preparation Time: </strong>{$row["prep_time"]}</li>
+                    <li class='text-center'><strong>Preparation Time: </strong>{$row["prep_time"]} min</li>
                     <li class='text-center'><strong>Type: </strong>{$row["type"]}</li>
                     <li class='text-center'><strong>Meal Type: </strong>{$row["meal_type"]}</li>
                 </ul>
@@ -94,8 +94,6 @@ mysqli_close($connect);
     <?php require_once '../components/bootstrap.php' ?>
 
     <style>
-        
-
         /* Add the sliding text animation styles here */
         .sliding-text-container {
             position: relative;
