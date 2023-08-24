@@ -84,7 +84,7 @@ if (isset($_POST["update"])) {
                     <input name="picture" type="text" class="input" placeholder="Picture Link" value="<?= $row["picture"] ?>">
                     <!-- <input name="role" type="text" class="input" placeholder="Users Role" value="<?= $row["role"] ?>"> -->
                     <select name="role" type="text" class="input" placeholder="Select role" value="<?= $row["role"] ?>">
-                        <option value=" ">Select role</option>
+                        <option value=" "><?= $row["role"] ?></option>
                         <option>user</option>
                         <option>admin</option>
                         <option>blocked</option>
