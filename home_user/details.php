@@ -14,6 +14,8 @@ $row = mysqli_fetch_assoc($result);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recipe Details</title>
   <link rel="stylesheet" href="../components/details.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
   <style>
     .section_our_solution .row {
       align-items: center;
@@ -204,7 +206,14 @@ $row = mysqli_fetch_assoc($result);
 </head>
 
 <body>
-  <?php require_once '../components/navbar.php' ?>
+  <?php if (isset($_SESSION["admin"])) {
+    require_once '../components/admin_navbar.php';
+  } else {
+    require_once '../components/navbar.php';
+  }
+  ?>
+
+
   <div class="section_our_solution d-flex justify-content-center text-align-center my-3">
     <div class="row">
       <div class="col-lg-8 col-md-6 col-sm-6 ">
